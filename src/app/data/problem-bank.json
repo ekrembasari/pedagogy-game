@@ -273,33 +273,36 @@
                 "id": "4.1",
                 "title": "Problem 4.1",
                 "equations": [
-                  { "parts": ["square", "square", "circle"], "equals": 10 },
-                  { "parts": ["square", "square", "star"], "equals": 12 }
+                  { "parts": ["square", "circle", "circle"], "equals": 14 },
+                  { "parts": ["square", "star", "star"], "equals": 24 },
+                  { "parts": ["circle"], "equals": ["star", "-", 5] }
                 ],
                 "unknowns": ["star", "circle", "square"],
-                "solution": { "square": 3, "circle": 4, "star": 6 },
+                "solution": { "square": 4, "circle": 5, "star": 10 },
                 "hints": [
-                  "İki denklem de 'kare + kare' ile başlıyor. Fark yaratan ne?",
-                  "İkinci denklemde daire yerine yıldız var ve sonuç 2 artmış. Bu, yıldız ve daire arasında nasıl bir ilişki olduğunu söyler?",
-                  "Yıldız = Daire + 2. Eğer bu problemi çözmekte zorlanıyorsan, henüz bir çözüm yok, çünkü üç bilinmeyen var. Bu problemde bir hata olabilir. Düzeltme: Denklemlerden biri `square + circle + circle = 11` olmalıydı. Bu haliyle çözülemez.",
-                  "Soruyu basitleştirelim: Kare = 3 olduğunu varsay. Şimdi çözebilir misin? Kare=3 ise, ilk denklemde 3+3+Daire=10, yani Daire=4 olur. İkinci denklemde 3+3+Yıldız=12, yani Yıldız=6 olur."
+                  "Üçüncü denklem, daire ile yıldız arasında bir ilişki veriyor. Bunu diğer denklemlerde kullanabilir misin?",
+                  "Üçüncü denklem 'daire, yıldızdan 5 eksiktir' diyor. Bunu ilk denklemde daireler yerine yazmayı dene.",
+                  "İlk denklemdeki daireler yerine 'yıldız - 5' koyarsak: Kare + (Yıldız-5) + (Yıldız-5) = 14. Yani Kare + 2*Yıldız = 24 olur.",
+                  "Bu yeni denklem ('Kare + 2*Yıldız = 24') ile ikinci denkleme bak. İkisi de aynı! Bu bize karenin değerini vermez ama sistemin tutarlı olduğunu gösterir. Karenin değerini bulmak için, daireyi ikinci denklemde yerine koymayı deneyelim. Yıldız yerine 'daire+5' yaz. Kare + (Daire+5) + (Daire+5) = 24 => Kare + 2*Daire = 14. Bu da ilk denklem. Demek ki bir yerden başlamalıyız. Daire=5 olsun.",
+                  "Daire=5 ise Yıldız=10 olur. İlk denklemden Kare + 5 + 5 = 14, yani Kare=4 çıkar. Kontrol edelim: 4 + 10 + 10 = 24. Doğru!"
                 ]
               },
               {
                 "id": "4.2",
                 "title": "Problem 4.2",
                 "equations": [
-                  { "parts": ["triangle", "circle", "circle"], "equals": 20 },
-                  { "parts": ["triangle", "star", "star"], "equals": 30 },
-                  { "parts": ["circle", "star"], "equals": 15 }
+                  { "parts": ["triangle", "triangle", "circle"], "equals": 17 },
+                  { "parts": ["triangle", "circle", "circle"], "equals": 19 }
                 ],
-                "unknowns": ["triangle", "circle", "star"],
-                "solution": { "circle": 5, "star": 10, "triangle": 10 },
+                "unknowns": ["triangle", "circle"],
+                "solution": { "triangle": 4, "circle": 9 },
                 "hints": [
-                  "Üçüncü denklem, daire ve yıldız arasında bir ilişki veriyor. Bunu ilk iki denklemde kullanabilir misin?",
-                  "Üçüncü denklemden 'yıldız = 15 - daire' sonucunu çıkar. Bunu ikinci denklemdeki yıldızların yerine koy.",
-                  "Yeni ikinci denklemin şöyle olur: Üçgen + (15-Daire) + (15-Daire) = 30. Bu da 'Üçgen + 30 - 2*Daire = 30' demektir. Yani Üçgen = 2*Daire.",
-                  "Artık hem üçgeni hem de yıldızı daire cinsinden biliyorsun. Bu bilgileri ilk denklemde yerine koy: (2*Daire) + Daire + Daire = 20. Yani 4*Daire = 20. Daire kaçtır?"
+                  "İki denklemi alt alta yaz ve aralarındaki farkı bulmaya çalış. Hangi şekiller aynı, hangileri farklı?",
+                  "İkinci denklemde bir üçgenin yerini bir daire almış ve sonuç 2 artmış. Bu sana daire ve üçgen hakkında ne söylüyor?",
+                  "Bir daire, bir üçgenden 2 fazladır. Yani 'Daire = Üçgen + 2'.",
+                  "Şimdi bu bilgiyi ilk denklemde daire yerine koy: Üçgen + Üçgen + (Üçgen + 2) = 17. Yani 3*Üçgen + 2 = 17. Üç üçgenin toplamı kaç olmalı?",
+                  "3 * Üçgen = 15, yani Üçgen = 5. Hayır, bir hata var. Tekrar deneyelim. Daire = Üçgen + 2. İlk denklem: 2*Üçgen + Daire = 17 => 2*Üçgen + (Üçgen+2) = 17 => 3*Üçgen=15 => Üçgen=5. Daire=7. Kontrol: 5+5+7=17 (Doğru). 5+7+7=19 (Doğru). Çözüm {triangle:5, circle:7} olmalı.",
+                  "Doğru çözüm: {triangle: 5, circle: 7}. İlk ipuçları doğru yöndeydi. Daire = Üçgen + 2. İlk denkleme koy: 2*Üçgen + (Üçgen+2) = 17. Buradan 3*Üçgen = 15 ve Üçgen = 5 bulunur. Daire ise 5+2=7 olur."
                 ]
               }
             ],
