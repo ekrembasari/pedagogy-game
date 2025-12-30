@@ -76,6 +76,7 @@ export function AnswerForm({ problem, onSubmit, onNextProblem, isSolved }: Answe
                           placeholder="?"
                           className="text-center text-2xl font-bold h-14"
                           {...field}
+                          value={field.value ?? ''}
                         />
                       </FormControl>
                       <FormMessage className="text-center"/>
