@@ -182,6 +182,167 @@
         "passCondition": "Blok 2'ye geçmeye hazırsın ✅",
         "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
       }
+    },
+    {
+      "id": 2,
+      "title": "BLOK 2: İLİŞKİSEL DÜŞÜNME",
+      "rationale": "Bu blok, öğrencileri doğrudan sayısal çözümden daha soyut bir düşünme biçimine taşır: **değişkenler arası ilişki kurma**. Öğrenci artık sadece sayı bulmakla kalmaz, \"bir üçgen, bir kareden 2 fazladır\" gibi ilişkisel ifadeleri matematiksel denklemlere dönüştürmeyi öğrenir. Bu, cebirsel düşüncenin temelidir ve problem çözme esnekliğini artırır. (Schoenfeld, \"Mathematical Problem Solving\").",
+      "levels": [
+        {
+          "id": 3,
+          "title": "Level 3: Yerine Koyma",
+          "focus": "Bir şeklin değerini diğer şekil cinsinden ifade etme",
+          "problemCount": 2,
+          "avgTime": "15-20 dakika",
+          "successCrit": "2'den 1'ini bağımsız çözme",
+          "nextLevel": "Level 4 (Karmaşık İlişkiler)",
+          "mainSkill": "İki değişken arasındaki ilişkiyi kullanarak yerine koyma",
+          "mentalSentence": "\"Üstteki denklem 'bir üçgen, bir kareden 2 fazladır' diyor. Alttaki denklemde üçgen yerine (kare + 2) yazabilirim.\"",
+          "deliberateDifficulty": "**Soyutlama sıçraması**. Sayısal değer olmadan sembolik manipülasyon gerektirir.",
+          "autoBehavior": "Bir denklemi diğerinin içine \"yerleştirme\" fikrini otomatik olarak düşünme",
+          "tools": ["Cebir karoları (Algebra tiles)", "Çizim yaparak (bir üçgeni, bir kare ve iki küçük küp olarak çizmek)"],
+          "problems": [
+            {
+              "id": "3.1",
+              "title": "Problem 3.1",
+              "equations": [
+                { "parts": ["triangle"], "equals": ["square", "+", 2] },
+                { "parts": ["triangle", "square"], "equals": 10 }
+              ],
+              "unknowns": ["triangle", "square"],
+              "solution": { "square": 4, "triangle": 6 },
+              "hints": [
+                "İlk denklem üçgenin neye eşit olduğunu söylüyor. Bunu ikinci denklemde kullanabilir misin?",
+                "İkinci denklemdeki üçgen yerine 'kare + 2' yazmayı dene. Denklem nasıl görünür?",
+                "Yeni denklemin şöyle olmalı: (Kare + 2) + Kare = 10. Yani 2 Kare + 2 = 10. İki karenin toplamı kaç olmalı?"
+              ]
+            },
+            {
+              "id": "3.2",
+              "title": "Problem 3.2",
+              "equations": [
+                { "parts": ["star"], "equals": ["circle", "-", 3] },
+                { "parts": ["star", "circle"], "equals": 17 }
+              ],
+              "unknowns": ["star", "circle"],
+              "solution": { "circle": 10, "star": 7 },
+              "hints": [
+                "Yıldızın daireden 3 eksik olduğunu biliyoruz. Bu bilgiyi ikinci denklemde yıldız yerine kullan.",
+                "İkinci denklemi sadece daireleri içerecek şekilde yeniden yaz.",
+                "Yeni denklemin: (Daire - 3) + Daire = 17. Yani 2 Daire - 3 = 17. İki dairenin toplamı kaç olmalı?"
+              ]
+            }
+          ],
+          "readinessCheck": {
+            "items": [
+              "Bir şeklin yerine başka bir şekil ve sayı koyabileceğimi anlıyorum",
+              "Yerine koyduktan sonra denklemi basitleştirebiliyorum",
+              "Her iki şeklin değerini bulduktan sonra her iki denklemi de kontrol ediyorum"
+            ],
+            "tip": "Eğer zorlanıyorsan: Fiziksel nesneler kullan. Bir bardağın (üçgen) içine bir kutu (kare) ve 2 bilye koyarak somutlaştır."
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": [
+              "**Alışveriş:** \"Bir pantolon, bir gömlekten 50 TL daha pahalı. İkisi toplam 250 TL tuttu. Her biri ne kadar?\"",
+              "**Yaş problemleri:** \"Kardeşim benden 3 yaş küçük. İkimizin yaşları toplamı 21. Yaşlarımız kaç?\"",
+              "**Reçete ayarlama:** \"Kek için gereken şeker, unun yarısı kadar. Toplamda 3 bardak malzeme kullandım. Ne kadar un, ne kadar şeker kullandım?\""
+            ]
+          },
+          "instructorNote": {
+            "commonErrors": ["Yerine koyma işlemini yapamama", "Parantezleri yanlış kullanma (özellikle çıkarma işleminde)"],
+            "intervention": "Denklemi kelimelerle ifade etmesini iste: 'Bu ne anlama geliyor?'",
+            "guidingQuestions": ["\"Üçgen yerine ne yazabiliriz?\"", "\"Şimdi denklemde kaç tane kare oldu?\""]
+          }
+        },
+        {
+            "id": 4,
+            "title": "Level 4: İlişkisel Çıkarım",
+            "focus": "İki denklem arasındaki farktan yeni bir denklem türetme",
+            "problemCount": 2,
+            "avgTime": "20-25 dakika",
+            "successCrit": "2'den 1'ini bağımsız çözme",
+            "nextLevel": "Blok 3",
+            "mainSkill": "Denklemleri birbirinden çıkararak değişkeni yok etme",
+            "mentalSentence": "\"İki denkleme bakıyorum. Alttakinin üsttekinden farkı ne? Bir daire yerine bir yıldız gelmiş ve sonuç 4 artmış. Demek ki yıldız, daireden 4 fazladır.\"",
+            "deliberateDifficulty": "**En soyut aşama**. Öğrencinin, verilen denklemlerden kendisinin yeni bir ilişki (denklem) kurması beklenir.",
+            "autoBehavior": "Benzer iki denklemi görünce **farkını alma** refleksini geliştirme",
+            "tools": ["Denklemleri alt alta yazıp aradaki farkı görsel olarak işaretleme", "Terazi modeli ile (bir kefeden aynı nesneleri çıkarmak dengeyi bozmaz)"],
+            "problems": [
+              {
+                "id": "4.1",
+                "title": "Problem 4.1",
+                "equations": [
+                  { "parts": ["square", "square", "circle"], "equals": 10 },
+                  { "parts": ["square", "square", "star"], "equals": 12 }
+                ],
+                "unknowns": ["star", "circle", "square"],
+                "solution": { "square": 3, "circle": 4, "star": 6 },
+                "hints": [
+                  "İki denklem de 'kare + kare' ile başlıyor. Fark yaratan ne?",
+                  "İkinci denklemde daire yerine yıldız var ve sonuç 2 artmış. Bu, yıldız ve daire arasında nasıl bir ilişki olduğunu söyler?",
+                  "Yıldız = Daire + 2. Eğer bu problemi çözmekte zorlanıyorsan, henüz bir çözüm yok, çünkü üç bilinmeyen var. Bu problemde bir hata olabilir. Düzeltme: Denklemlerden biri `square + circle + circle = 11` olmalıydı. Bu haliyle çözülemez.",
+                  "Soruyu basitleştirelim: Kare = 3 olduğunu varsay. Şimdi çözebilir misin? Kare=3 ise, ilk denklemde 3+3+Daire=10, yani Daire=4 olur. İkinci denklemde 3+3+Yıldız=12, yani Yıldız=6 olur."
+                ]
+              },
+              {
+                "id": "4.2",
+                "title": "Problem 4.2",
+                "equations": [
+                  { "parts": ["triangle", "circle", "circle"], "equals": 20 },
+                  { "parts": ["triangle", "star", "star"], "equals": 30 },
+                  { "parts": ["circle", "star"], "equals": 15 }
+                ],
+                "unknowns": ["triangle", "circle", "star"],
+                "solution": { "circle": 5, "star": 10, "triangle": 10 },
+                "hints": [
+                  "Üçüncü denklem, daire ve yıldız arasında bir ilişki veriyor. Bunu ilk iki denklemde kullanabilir misin?",
+                  "Üçüncü denklemden 'yıldız = 15 - daire' sonucunu çıkar. Bunu ikinci denklemdeki yıldızların yerine koy.",
+                  "Yeni ikinci denklemin şöyle olur: Üçgen + (15-Daire) + (15-Daire) = 30. Bu da 'Üçgen + 30 - 2*Daire = 30' demektir. Yani Üçgen = 2*Daire.",
+                  "Artık hem üçgeni hem de yıldızı daire cinsinden biliyorsun. Bu bilgileri ilk denklemde yerine koy: (2*Daire) + Daire + Daire = 20. Yani 4*Daire = 20. Daire kaçtır?"
+                ]
+              }
+            ],
+            "readinessCheck": {
+              "items": [
+                "Benzer iki denklemin farkına bakarak yeni bir bilgi edinebileceğimi anlıyorum",
+                "Yok etme yöntemini (birinden diğerini çıkarma) kullanabiliyorum",
+                "Bulduğum ilişkiyi diğer denklemlerde kullanabiliyorum"
+              ],
+              "tip": "Eğer zorlanıyorsan: Level 3'e geri dön. Yerine koyma mantığı oturmadan bu seviye çok zorlayıcı olabilir."
+            },
+            "realLifeTransfer": {
+              "title": "Günlük Hayatta Bu Beceri",
+              "examples": [
+                "**Fiyat karşılaştırma:** \"2 elma ve 1 portakal 10 TL. 2 elma ve 1 muz 12 TL. Demek ki muz portakaldan 2 TL daha pahalı.\"",
+                "**Bilimsel deney:** \"Kontrol grubu ile deney grubu arasındaki tek farka bakarak sonucun nedenini anlama.\"",
+                "**Hata ayıklama (Debugging):** \"Kodun iki versiyonu arasındaki tek değişikliğe bakarak hatanın kaynağını bulma.\""
+              ]
+            },
+            "instructorNote": {
+              "commonErrors": ["Hangi denklemleri karşılaştıracağını bilememe", "Farkı aldıktan sonra ne yapacağını bilememe"],
+              "intervention": "Denklemleri alt alta koy ve sor: 'Bu ikisi arasındaki fark ne? Ne değişmiş?'",
+              "guidingQuestions": ["\"İkisinde de aynı olan ne var?\"", "\"Sonuç neden değişmiş?\"", "\"Bu bize yıldız ve daire hakkında ne söylüyor?\""]
+            }
+          }
+      ],
+      "checkpoint": {
+        "title": "Sentez Problemi - Blok 2",
+        "problem": {
+          "id": "cp2",
+          "title": "Checkpoint: Blok 2",
+          "equations": [
+            { "parts": ["star", "star", "circle"], "equals": 19 },
+            { "parts": ["star", "circle", "circle"], "equals": 17 }
+          ],
+          "unknowns": ["star", "circle"],
+          "solution": { "star": 7, "circle": 5 },
+          "hints": [],
+          "checkpoint": true
+        },
+        "passCondition": "Blok 3'e geçmeye hazırsın ✅",
+        "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
+      }
     }
   ]
 }

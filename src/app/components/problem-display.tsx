@@ -6,6 +6,10 @@ import { ShapeIcon } from './icons';
 import { Plus, Equal } from 'lucide-react';
 
 export function ProblemDisplay({ problem }: { problem: Problem }) {
+  const isRelational = (eq: any): eq is { parts: string[]; equals: any[] } => {
+    return Array.isArray(eq.equals);
+  };
+
   return (
     <Card className="w-full">
       <CardHeader>
@@ -22,7 +26,21 @@ export function ProblemDisplay({ problem }: { problem: Problem }) {
                 </React.Fragment>
               ))}
               <Equal className="h-8 w-8 text-primary font-bold" />
-              <span className="text-4xl md:text-5xl font-bold font-headline text-primary">{eq.equals}</span>
+              {isRelational(eq) ? (
+                 <div className="flex items-center space-x-2">
+                    {eq.equals.map((part, i) => {
+                        if (typeof part === 'string' && problem.unknowns.includes(part)) {
+                            return <ShapeIcon key={i} shape={part} className="h-8 w-8 md:h-12 md:w-12 text-accent-foreground" />;
+                        }
+                        if (typeof part === 'string' && (part === '+' || part === '-')) {
+                            return <span key={i} className="text-3xl font-bold text-muted-foreground mx-2">{part}</span>
+                        }
+                        return <span key={i} className="text-4xl md:text-5xl font-bold font-headline text-primary">{part}</span>
+                    })}
+                 </div>
+              ) : (
+                <span className="text-4xl md:text-5xl font-bold font-headline text-primary">{eq.equals}</span>
+              )}
             </div>
           ))}
         </div>

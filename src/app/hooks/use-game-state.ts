@@ -128,6 +128,31 @@ export function useGameState() {
   const goToNextProblem = useCallback(() => {
     const block = problemBank.blocks.find(b => b.id === gameState.currentBlockId);
     if (!block) return;
+
+    const isCheckpoint = block.checkpoint?.problem.id === gameState.currentProblemId;
+
+    // If it's a checkpoint, move to the next block
+    if (isCheckpoint) {
+        const currentBlockIndex = problemBank.blocks.findIndex(b => b.id === gameState.currentBlockId);
+        if (currentBlockIndex < problemBank.blocks.length - 1) {
+            const nextBlock = problemBank.blocks[currentBlockIndex + 1];
+            const nextLevel = nextBlock.levels[0];
+            const nextProblem = nextLevel.problems[0];
+            setGameState(prev => ({
+                ...prev,
+                currentBlockId: nextBlock.id,
+                currentLevelId: nextLevel.id,
+                currentProblemId: nextProblem.id,
+                attempts: 0,
+                hintsUsed: 0
+            }));
+            return;
+        } else {
+             // End of all content
+            toast({ title: "Congratulations!", description: "You have completed all the problems!" });
+            return;
+        }
+    }
   
     const level = block.levels.find(l => l.id === gameState.currentLevelId);
     if (!level) return;
@@ -172,7 +197,8 @@ export function useGameState() {
       return;
     }
   
-    // Move to next block
+    // This part should now be handled by the checkpoint logic, 
+    // but as a fallback, we check for next block.
     const currentBlockIndex = problemBank.blocks.findIndex(b => b.id === gameState.currentBlockId);
     if (currentBlockIndex < problemBank.blocks.length - 1) {
       const nextBlock = problemBank.blocks[currentBlockIndex + 1];

@@ -2,7 +2,7 @@ export type Shape = 'star' | 'circle' | 'triangle' | 'square';
 
 export interface Equation {
   parts: Shape[];
-  equals: number;
+  equals: number | (string | number)[];
 }
 
 export interface Solution {
