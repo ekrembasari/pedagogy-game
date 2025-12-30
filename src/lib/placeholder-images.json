@@ -1,3 +1,16 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "roblox-currency",
+      "description": "An illustration of currency from the game Roblox.",
+      "imageUrl": "https://images.unsplash.com/photo-1622738374812-66a97d51af6f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxSb2Jsb3glMjBjdXJyZW5jeXxlbnwwfHx8fDE3NjcwOTYyNTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Roblox currency"
+    },
+    {
+      "id": "minecraft-crafting",
+      "description": "An illustration of a crafting recipe from the game Minecraft.",
+      "imageUrl": "https://images.unsplash.com/photo-1598724168411-9ba1e003a7fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8TWluZWNyYWZ0JTIwY3JhZnRpbmd8ZW58MHx8fHwxNzY3MDk2MjU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Minecraft crafting"
+    }
+  ]
 }

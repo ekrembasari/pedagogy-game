@@ -1,0 +1,187 @@
+
+{
+  "appName": "VisuEquation Growth",
+  "appDescription": "Bu sayfa bir problem seti değil, bir düşünme eğitimi sistemidir.",
+  "blocks": [
+    {
+      "id": 1,
+      "title": "BLOK 1: TEMEL",
+      "rationale": "Blok 1, matematiksel düşünmenin en temel taşını koyar: **değişken kavramı**. Öğrenci burada, soyut semboller ile somut sayılar arasında köprü kurmayı öğrenir. Singapur Matematiği'nin CPA (Concrete-Pictorial-Abstract) modeline göre, bu aşama \"görsel\" aşamadır ve soyutlamaya geçişin anahtarıdır.\n\nAraştırmalar gösteriyor ki, değişken kavramını erken yaşta görsel olarak içselleştiren öğrenciler, cebirsel düşünmeye daha kolay geçiş yapar (NRICH, \"Visual Algebra\" çalışmaları).",
+      "levels": [
+        {
+          "id": 1,
+          "title": "Level 1: Eşit Dağılım",
+          "focus": "Aynı şekil = aynı değer kavramını otomatikleştirmek",
+          "problemCount": 3,
+          "avgTime": "10-15 dakika",
+          "successCrit": "3'ten 2'sini bağımsız çözme",
+          "nextLevel": "Level 2 (Zincirleme Çözme)",
+          "mainSkill": "Aynı şekil = aynı değer kavramını otomatikleştirmek",
+          "mentalSentence": "\"Aynı şekiller aynı sayı. Toplam ÷ adet = bir tanesi.\"",
+          "deliberateDifficulty": "Yok. Bu seviye **güvenli alan**. %100 başarı hedefi.",
+          "autoBehavior": "Aynı şekilleri görünce **otomatik bölme** yapma",
+          "tools": ["Fiziksel nesneler (LEGO blokları, renkli küpler)", "Terazi modeli (basit askı çubuğu + bardaklar)", "Manipülatifler (aynı boyutta düğmeler, taşlar)"],
+          "problems": [
+            {
+              "id": "1.1",
+              "title": "Problem 1.1",
+              "equations": [{ "parts": ["star", "star", "star"], "equals": 15 }],
+              "unknowns": ["star"],
+              "solution": { "star": 5 },
+              "hints": [
+                "Denklemde kaç tane aynı şekil (yıldız) var?",
+                "Toplamı (15) şekil sayısına (3) bölersen bir tanesinin değerini bulabilirsin.",
+                "15 / 3 = ?"
+              ]
+            },
+            {
+              "id": "1.2",
+              "title": "Problem 1.2",
+              "equations": [{ "parts": ["circle", "circle", "circle", "circle"], "equals": 20 }],
+              "unknowns": ["circle"],
+              "solution": { "circle": 5 },
+              "hints": [
+                "Bu denklemde toplam kaç tane daire var?",
+                "Toplamı (20) daire sayısına (4) bölerek bir dairenin değerini bulabilirsin.",
+                "20 / 4 = ?"
+              ]
+            },
+            {
+              "id": "1.3",
+              "title": "Problem 1.3",
+              "equations": [{ "parts": ["triangle", "triangle"], "equals": 18 }],
+              "unknowns": ["triangle"],
+              "solution": { "triangle": 9 },
+              "hints": [
+                "Denklemde toplam kaç tane üçgen var?",
+                "Toplamı (18) üçgen sayısına (2) bölmeyi dene.",
+                "18 / 2 = ?"
+              ]
+            }
+          ],
+          "readinessCheck": {
+            "items": [
+              "Aynı şekil gördüğümde hemen \"kaç tane var?\" diye bakıyorum",
+              "Toplam ÷ adet işlemini hatasız yapıyorum",
+              "Cevabımı kontrol ediyorum (çarparak)"
+            ],
+            "tip": "Eğer zorlanıyorsan: Manipülatif kullan (gerçek nesnelerle toplama-bölme)"
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": [
+              "**Market alışverişi:** \"3 kutu çikolata 15 TL ise, bir kutu kaç TL?\"",
+              "**Yemek paylaşımı:** \"6 dilim pizzayı 2 kişiye eşit paylaştırırsak, her kişiye kaç dilim düşer?\"",
+              "**Oyuncak organizasyonu:** \"12 oyuncağı 3 kutuya eşit koyarsak, her kutuya kaç tane?\""
+            ]
+          },
+          "instructorNote": {
+            "commonErrors": ["Toplama yerine çarpma yapma (⭐ = 15×3)", "Her şekle farklı değer verme (değişken kavramı yeni)"],
+            "intervention": "Çocuk kendi fark edene kadar bekle. \"Kontrol edelim\" de, ama doğru cevabı söyleme.",
+            "guidingQuestions": ["\"Kaç tane ⭐ var?\"", "\"15'i kaça böldük?\"", "\"5+5+5 ne eder?\""]
+          }
+        },
+        {
+          "id": 2,
+          "title": "Level 2: Zincirleme Çözme",
+          "focus": "Bir denklemde bulduğunu başka denklemde kullanma",
+          "problemCount": 3,
+          "avgTime": "15-20 dakika",
+          "successCrit": "3'ten 2'sini bağımsız çözme",
+          "nextLevel": "Level 3 (Üçlü Zincir)",
+          "mainSkill": "Bir denklemde bulduğunu başka denklemde kullanma (yerine koyma)",
+          "mentalSentence": "\"İlk denklemi çözersem ⭐'ı buluyorum. Sonra onu ikinci denklemde yerine koyabilirim.\"",
+          "deliberateDifficulty": "**İlk kez iki adımlı düşünme**. Öğrenci hangi denklemle başlayacağını seçmeli (ama burada açık).",
+          "autoBehavior": "\"Hangi denklemde tek çeşit şekil var?\" diye **otomatik sorma**",
+          "tools": ["Renkli kalemler (her değişken için bir renk)", "Not kağıdı (ara sonuçları yazma)"],
+          "problems": [
+            {
+              "id": "2.1",
+              "title": "Problem 2.1",
+              "equations": [
+                { "parts": ["star", "star", "star"], "equals": 12 },
+                { "parts": ["star", "star", "circle"], "equals": 14 }
+              ],
+              "unknowns": ["star", "circle"],
+              "solution": { "star": 4, "circle": 6 },
+              "hints": [
+                "Hangi denklemle başlamak daha kolay? Sadece tek çeşit şekil olanla başlayabilir misin?",
+                "İlk denklemi çözerek yıldızın değerini bul. Sonra bulduğun değeri ikinci denklemde yıldızların yerine koy.",
+                "Yıldız = 4. İkinci denklemde yerine koyarsan: 4 + 4 + Daire = 14. Daire kaç olmalı?"
+              ]
+            },
+            {
+              "id": "2.2",
+              "title": "Problem 2.2",
+              "equations": [
+                { "parts": ["triangle", "triangle", "triangle", "triangle"], "equals": 24 },
+                { "parts": ["triangle", "triangle", "square"], "equals": 19 }
+              ],
+              "unknowns": ["triangle", "square"],
+              "solution": { "triangle": 6, "square": 7 },
+              "hints": [
+                "Önce sadece üçgenlerin olduğu denklemi çöz.",
+                "Üçgenin değerini bulduktan sonra, bu değeri ikinci denklemde yerine yaz.",
+                "Üçgen = 6. İkinci denklem: 6 + 6 + Kare = 19. Kare kaç olmalı?"
+              ]
+            },
+            {
+              "id": "2.3",
+              "title": "Problem 2.3",
+              "equations": [
+                { "parts": ["circle", "circle"], "equals": 16 },
+                { "parts": ["circle", "star", "star", "star"], "equals": 23 }
+              ],
+              "unknowns": ["circle", "star"],
+              "solution": { "circle": 8, "star": 5 },
+              "hints": [
+                "İlk olarak dairenin değerini bul. Bu en kolayı.",
+                "Dairenin değerini ikinci denklemde yerine koy ve yıldızları bulmak için yeni bir denklem oluştur.",
+                "Daire = 8. İkinci denklem: 8 + ⭐ + ⭐ + ⭐ = 23. Üç tane yıldızın toplamı kaç olmalı? (23 - 8 = 15)"
+              ]
+            }
+          ],
+          "readinessCheck": {
+            "items": [
+              "İki denklem görünce \"hangisi daha kolay?\" diye düşünüyorum",
+              "Bulduğum değeri doğru yerine koyuyorum",
+              "İkinci denklemi çözdükten sonra her iki denklemi kontrol ediyorum"
+            ],
+            "tip": "Eğer zorlanıyorsan: Level 1'e geri dön - tek değişken otomatik değilse iki değişken zor gelir."
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": [
+              "**Tarif takip etme:** \"Önce yumurtaları çırp (1. adım), sonra unu ekle (2. adım)\"",
+              "**Oyun stratejisi:** \"Önce mavi taşı al, sonra o taşla kırmızıyı değiştirebilirim\"",
+              "**Ev ödevi planı:** \"Önce kolay matematik problemlerini çöz, sonra zor olanları\""
+            ]
+          },
+          "instructorNote": {
+            "commonErrors": ["Yanlış denklemle başlama (iki bilinmeyenli olanla)", "Yerine koyarken hata (4+4+🔵=14'te 4'leri unutma)"],
+            "intervention": "\"Hangisi daha basit?\" diye sor, ama işaret etme.",
+            "guidingQuestions": [],
+            "limitLine": "Eğer Level 2'de 10 dakikadan fazla takılıyorsa → Level 1 henüz oturmamış, geri dön."
+          }
+        }
+      ],
+      "checkpoint": {
+        "title": "Sentez Problemi - Blok 1",
+        "problem": {
+          "id": "cp1",
+          "title": "Checkpoint: Blok 1",
+          "equations": [
+            { "parts": ["star", "star", "star"], "equals": 18 },
+            { "parts": ["star", "circle", "circle", "circle"], "equals": 24 }
+          ],
+          "unknowns": ["star", "circle"],
+          "solution": { "star": 6, "circle": 6 },
+          "hints": [],
+          "checkpoint": true
+        },
+        "passCondition": "Blok 2'ye geçmeye hazırsın ✅",
+        "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
+      }
+    }
+  ]
+}
