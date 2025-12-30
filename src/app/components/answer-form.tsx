@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Input } from '@/components/ui/input';
 import type { Problem, Solution } from '@/app/lib/types';
 import { ShapeIcon } from './icons';
-import { Card, CardContent } from './ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 
 interface AnswerFormProps {

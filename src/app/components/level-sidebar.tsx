@@ -3,7 +3,7 @@ import { problemBank } from '@/app/data/problem-bank';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, Lock } from 'lucide-react';
-import { ScrollArea } from './ui/scroll-area';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 interface LevelSidebarProps {
   currentBlockId: number;
