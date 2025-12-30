@@ -3,17 +3,35 @@ import React from 'react';
 import type { Problem } from '@/app/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShapeIcon } from './icons';
-import { Plus, Equal } from 'lucide-react';
+import { Plus, Equal, Lightbulb } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
-export function ProblemDisplay({ problem }: { problem: Problem }) {
+interface ProblemDisplayProps {
+  problem: Problem;
+  isCheckpoint: boolean;
+  onGetHint: () => void;
+  hintsUsedCount: number;
+}
+
+export function ProblemDisplay({ problem, isCheckpoint, onGetHint, hintsUsedCount }: ProblemDisplayProps) {
   const isRelational = (eq: any): eq is { parts: string[]; equals: any[] } => {
     return Array.isArray(eq.equals);
   };
+  const canGetHint = !isCheckpoint && hintsUsedCount < problem.hints.length;
+
 
   return (
     <Card className="w-full">
-      <CardHeader>
+      <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-2xl font-headline">{problem.title}</CardTitle>
+        <Button onClick={onGetHint} variant="ghost" size="icon" disabled={!canGetHint} aria-label="İpucu iste">
+            <Lightbulb className={canGetHint ? "text-yellow-400" : "text-muted-foreground"}/>
+            {canGetHint && (
+                <span className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs">
+                    {problem.hints.length - hintsUsedCount}
+                </span>
+            )}
+        </Button>
       </CardHeader>
       <CardContent>
         <div className="space-y-6">

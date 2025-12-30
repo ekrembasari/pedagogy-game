@@ -9,7 +9,7 @@ import {
   SidebarFooter,
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import { Home, BarChart, Settings, LogOut } from 'lucide-react';
+import { Home, BarChart, Settings, Expand, Lightbulb } from 'lucide-react';
 import { LevelSidebar } from './level-sidebar';
 import { useGameState } from '../hooks/use-game-state';
 import { ProblemDisplay } from './problem-display';
@@ -17,7 +17,7 @@ import { AnswerForm } from './answer-form';
 import { InfoPanel } from './info-panel';
 import { StruggleAnalysisModal } from './struggle-analysis-modal';
 import Link from 'next/link';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { problemBank } from '../data/problem-bank';
 
 export default function Game() {
@@ -35,6 +35,30 @@ export default function Game() {
     showStruggleAnalysis,
     setShowStruggleAnalysis,
   } = useGameState();
+
+  const [isFullScreen, setIsFullScreen] = useState(false);
+
+  const toggleFullScreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      setIsFullScreen(true);
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        setIsFullScreen(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleFullScreenChange = () => {
+      setIsFullScreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullScreenChange);
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullScreenChange);
+    };
+  }, []);
 
   const isSolved = useMemo(() => 
     gameState.history.some(h => h.problemId === gameState.currentProblemId && h.correct),
@@ -89,12 +113,21 @@ export default function Game() {
               <Settings />
               <span className="sr-only">Ayarlar</span>
             </Button>
+             <Button variant="ghost" size="icon" onClick={toggleFullScreen}>
+              <Expand />
+              <span className="sr-only">{isFullScreen ? 'Tam Ekrandan Çık' : 'Tam Ekrana Geç'}</span>
+            </Button>
           </div>
         </header>
 
         <main className="p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           <div className="lg:col-span-2 space-y-6">
-            <ProblemDisplay problem={currentProblem} />
+            <ProblemDisplay 
+              problem={currentProblem}
+              isCheckpoint={!!currentProblem.checkpoint}
+              onGetHint={getHint}
+              hintsUsedCount={gameState.hintsUsed}
+            />
             <AnswerForm problem={currentProblem} onSubmit={submitAnswer} onNextProblem={goToNextProblem} isSolved={isSolved} />
           </div>
           <div className="lg:col-span-1 lg:sticky top-20">
@@ -103,8 +136,6 @@ export default function Game() {
               block={currentBlock}
               hints={currentProblem.hints}
               hintsUsed={gameState.hintsUsed}
-              onGetHint={getHint}
-              isCheckpoint={!!currentProblem.checkpoint}
             />
           </div>
         </main>

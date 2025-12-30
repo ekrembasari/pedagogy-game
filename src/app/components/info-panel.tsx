@@ -1,6 +1,5 @@
 'use client';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Level, Block } from '@/app/lib/types';
 import { Lightbulb, BookOpen, GraduationCap, Check, Users } from 'lucide-react';
@@ -10,11 +9,9 @@ interface InfoPanelProps {
   block: Block | undefined;
   hints: string[];
   hintsUsed: number;
-  onGetHint: () => void;
-  isCheckpoint: boolean;
 }
 
-export function InfoPanel({ level, block, hints, hintsUsed, onGetHint, isCheckpoint }: InfoPanelProps) {
+export function InfoPanel({ level, block, hints, hintsUsed }: InfoPanelProps) {
   if (!level || !block) return null;
 
   return (
@@ -54,16 +51,14 @@ export function InfoPanel({ level, block, hints, hintsUsed, onGetHint, isCheckpo
         <Card className="h-full">
           <CardHeader>
             <CardTitle>İpuçları</CardTitle>
-            <CardDescription>Takıldın mı? İşte sana yardımcı olacak birkaç ipucu.</CardDescription>
+            <CardDescription>İstediğin ipuçları burada görünecek.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            {isCheckpoint ? (
-              <p className="text-center text-muted-foreground p-4 bg-muted rounded-md">Değerlendirme modunda ipucu kullanılamaz. Haydi, tek başına dene!</p>
-            ) : (
-                <>
-                <Button onClick={onGetHint} className="w-full" disabled={hintsUsed >= hints.length}>
-                    <Lightbulb className="mr-2 h-4 w-4" /> Yeni İpucu İste ({hintsUsed}/{hints.length})
-                </Button>
+            {hints.length === 0 ? (
+                <p className="text-center text-muted-foreground p-4 bg-muted rounded-md">Bu problem için ipucu bulunmuyor.</p>
+            ) : hintsUsed === 0 ? (
+                 <p className="text-center text-muted-foreground p-4 bg-muted rounded-md">İpucu istemek için problem başlığındaki ampul ikonuna tıkla.</p>
+            ): (
                 <div className="space-y-2">
                 {Array.from({ length: hintsUsed }).map((_, i) => (
                     <p key={i} className="p-3 bg-secondary rounded-md text-secondary-foreground text-sm">
@@ -71,7 +66,6 @@ export function InfoPanel({ level, block, hints, hintsUsed, onGetHint, isCheckpo
                     </p>
                 ))}
                 </div>
-                </>
             )}
           </CardContent>
         </Card>
