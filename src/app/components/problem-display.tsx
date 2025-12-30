@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import type { Problem } from '@/app/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ShapeIcon } from './icons';
