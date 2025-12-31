@@ -10,14 +10,14 @@ import {
 import { Button } from '@/components/ui/button';
 import { BarChart, Settings, Expand } from 'lucide-react';
 import { LevelSidebar } from './level-sidebar';
-import { useGameState } from '../hooks/use-game-state';
+import { useGameLogic } from '@/hooks/useGameLogic';
 import { ProblemDisplay } from './problem-display';
 import { AnswerForm } from './answer-form';
 import { InfoPanel } from './info-panel';
 import { StruggleAnalysisModal } from './struggle-analysis-modal';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
-import { problemBank } from '../data/problem-bank';
+import { problemBank } from '@/app/data/problem-bank';
 import { Progress } from '@/components/ui/progress';
 import { Star } from 'lucide-react';
 
@@ -35,7 +35,7 @@ export default function Game() {
     selectProblem,
     showStruggleAnalysis,
     setShowStruggleAnalysis,
-  } = useGameState();
+  } = useGameLogic();
 
   const [isFullScreen, setIsFullScreen] = useState(false);
 
