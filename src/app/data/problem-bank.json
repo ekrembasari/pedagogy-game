@@ -184,179 +184,179 @@
       }
     },
     {
-        "id": 2,
-        "title": "BLOK 2: PLANLAMA",
-        "rationale": "Blok 2 (Planlama), öğrencinin \"rastgele deneme\" zihniyetinden \"stratejik düşünme\" zihniyetine geçiş noktasıdır. Araştırmalar gösteriyor ki, planlama becerisini erken yaşta kazanan çocuklar, ileriki akademik yaşamlarında daha başarılıdır. Singapur Matematiği'nin Bar Model yaklaşımı, bu aşamada öğrenciye \"problem haritası çizme\" becerisini kazandırır. NRICH'in \"Problem Solving Strategies\" çalışmaları, planlı çözüm yapan öğrencilerin karmaşık problemlerde %40 daha başarılı olduğunu gösteriyor.",
-        "levels": [
+      "id": 2,
+      "title": "BLOK 2: PLANLAMA",
+      "rationale": "Blok 2 (Planlama), öğrencinin \"rastgele deneme\" zihniyetinden \"stratejik düşünme\" zihniyetine geçiş noktasıdır. Araştırmalar gösteriyor ki, planlama becerisini erken yaşta kazanan çocuklar, ileriki akademik yaşamlarında daha başarılıdır. Singapur Matematiği'nin Bar Model yaklaşımı, bu aşamada öğrenciye \"problem haritası çizme\" becerisini kazandırır. NRICH'in \"Problem Solving Strategies\" çalışmaları, planlı çözüm yapan öğrencilerin karmaşık problemlerde %40 daha başarılı olduğunu gösteriyor.",
+      "levels": [
+        {
+          "id": 3,
+          "title": "Level 3: Üçlü Zincir",
+          "focus": "Çözme sırasını planlama (3 adımlı zincir)",
+          "mainSkill": "Çözme sırasını planlama (3 adımlı zincir)",
+          "mentalSentence": "\"İlk denklemi çözünce birincisini bulurum. İkinci denklemi çözünce ikincisini... Adım adım gidiyorum.\"",
+          "deliberateDifficulty": "Daha uzun zincir (3 adım). Bir önceki adımda hata varsa sonrakiler yanlış olur → kontrol alışkanlığı kritik.",
+          "autoBehavior": "Her adımdan sonra ara kontrol yapma",
+          "problemCount": 3,
+          "avgTime": "20-25 dakika",
+          "successCrit": "3'ten 2'sini bağımsız çözme",
+          "nextLevel": "Level 4 (Dörtlü Zincir)",
+          "tools": ["Not defteri (adım adım çözüm yazma)", "Renkli kalemler (her değişken farklı renk)", "Ok diyagramı (hangi denklem → hangi denklem)"],
+          "problems": [
             {
-                "id": 3,
-                "title": "Level 3: Üçlü Zincir",
-                "focus": "Çözme sırasını planlama (3 adımlı zincir)",
-                "mainSkill": "Çözme sırasını planlama (3 adımlı zincir)",
-                "mentalSentence": "\"İlk denklemi çözünce birincisini bulurum. İkinci denklemi çözünce ikincisini... Adım adım gidiyorum.\"",
-                "deliberateDifficulty": "Daha uzun zincir (3 adım). Bir önceki adımda hata varsa sonrakiler yanlış olur → kontrol alışkanlığı kritik.",
-                "autoBehavior": "Her adımdan sonra ara kontrol yapma",
-                "problemCount": 3,
-                "avgTime": "20-25 dakika",
-                "successCrit": "3'ten 2'sini bağımsız çözme",
-                "nextLevel": "Level 4 (Dörtlü Zincir)",
-                "tools": ["Not defteri (adım adım çözüm yazma)", "Renkli kalemler (her değişken farklı renk)", "Ok diyagramı (hangi denklem → hangi denklem)"],
-                "problems": [
-                    {
-                        "id": "3.1",
-                        "title": "Problem 3.1",
-                        "equations": [
-                            { "parts": ["star", "star", "star", "star"], "equals": 16 },
-                            { "parts": ["star", "star", "circle", "circle"], "equals": 18 },
-                            { "parts": ["circle", "triangle", "triangle"], "equals": 16 }
-                        ],
-                        "unknowns": ["star", "circle", "triangle"],
-                        "solution": { "star": 4, "circle": 5, "triangle": 5.5 },
-                        "hints": ["Önce sadece yıldız olan denklemle başla.", "Yıldızı bulduktan sonra ikinci denkleme geçerek daireyi bulabilirsin.", "Yıldız = 4, Daire = 5. Şimdi üçgeni bulabilirsin."]
-                    },
-                    {
-                        "id": "3.2",
-                        "title": "Problem 3.2",
-                        "equations": [
-                            { "parts": ["square", "square", "square"], "equals": 21 },
-                            { "parts": ["square", "star", "star", "star"], "equals": 22 },
-                            { "parts": ["star", "star", "circle"], "equals": 13 }
-                        ],
-                        "unknowns": ["square", "star", "circle"],
-                        "solution": { "square": 7, "star": 5, "circle": 3 },
-                        "hints": ["Hangi denklemde tek çeşit şekil var?", "Kareyi bulduktan sonra yıldızı bulabileceğin denkleme bak.", "Kare = 7, Yıldız = 5. Artık daireyi bulmak çok kolay."]
-                    },
-                    {
-                        "id": "3.3",
-                        "title": "Problem 3.3",
-                        "equations": [
-                            { "parts": ["triangle", "triangle"], "equals": 14 },
-                            { "parts": ["triangle", "star", "star"], "equals": 17 },
-                            { "parts": ["star", "circle", "circle", "circle"], "equals": 20 }
-                        ],
-                        "unknowns": ["triangle", "star", "circle"],
-                        "solution": { "triangle": 7, "star": 5, "circle": 5 },
-                        "hints": ["Üçgenle başla.", "Sonra yıldızı bul.", "En son daireyi bularak problemi tamamla."]
-                    }
-                ],
-                "readinessCheck": {
-                    "items": [
-                        "Başlamadan önce \"hangi sırayla?\" diye düşünüyorum",
-                        "Her adımda ara kontrol yapıyorum",
-                        "3 adımlı zinciri karıştırmadan takip edebiliyorum"
-                    ],
-                    "tip": "Eğer zorlanıyorsan: Çözüm adımlarını yazılı olarak işaretle (1→2→3)"
-                },
-                "realLifeTransfer": {
-                    "title": "Günlük Hayatta Bu Beceri",
-                    "examples": [
-                        "**Ders çalışma planı:** \"Önce matematik, sonra Türkçe, sonra fen\" sıralaması yapma",
-                        "**Proje yönetimi:** \"Önce malzemeleri topla, sonra kes, sonra yapıştır\"",
-                        "**Satranç/strateji oyunları:** \"Eğer şu hamleyi yaparsam, sonra şunu yapabilirim, sonra...\""
-                    ]
-                },
-                "instructorNote": {
-                    "commonErrors": ["Ara sonucu unutma (zincir kopuyor)", "Yanlış sırayla çözme", "Kontrol yapmadan geçme"],
-                    "intervention": "\"Hangi denklemle başlamak daha mantıklı?\" diye sor",
-                    "guidingQuestions": ["Bulduğun değeri nereye yazdın?", "Sonraki adım ne olmalı?"]
-                }
+              "id": "3.1",
+              "title": "Problem 3.1",
+              "equations": [
+                { "parts": ["star", "star", "star", "star"], "equals": 16 },
+                { "parts": ["star", "star", "circle", "circle"], "equals": 18 },
+                { "parts": ["circle", "triangle", "triangle"], "equals": 17 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 4, "circle": 5, "triangle": 6 },
+              "hints": ["Önce sadece yıldız olan denklemle başla.", "Yıldızı bulduktan sonra ikinci denkleme geçerek daireyi bulabilirsin.", "Yıldız = 4, Daire = 5. Şimdi üçgeni bulabilirsin."]
             },
             {
-                "id": 4,
-                "title": "Level 4: Dörtlü Zincir",
-                "focus": "Uzun zincirde konsantrasyonu koruma ve not tutma",
-                "mainSkill": "Uzun zincirde konsantrasyonu koruma ve not tutma",
-                "mentalSentence": "\"4 denklem uzun ama mantık aynı. Adım adım, kontrollü. Acele yok.\"",
-                "deliberateDifficulty": "Daha uzun + ondalık sonuçlar. Bilgi kaybolması riski. Not tutma zorunlu hale geliyor.",
-                "autoBehavior": "Ara sonuçları yazma (kafadan tutmaya çalışmama)",
-                "problemCount": 3,
-                "avgTime": "25-30 dakika",
-                "successCrit": "3'ten 2'sini bağımsız çözme",
-                "nextLevel": "Level 5 (Sen Karar Ver)",
-                "tools": ["A4 kağıt (geniş çalışma alanı)", "Cetvelli not şablonu", "Hesap makinesi (sadece doğrulama için, çözüm için değil)"],
-                "problems": [
-                    {
-                        "id": "4.1",
-                        "title": "Problem 4.1",
-                        "equations": [
-                            { "parts": ["star", "star", "star"], "equals": 18 },
-                            { "parts": ["circle", "circle", "circle", "circle"], "equals": 20 },
-                            { "parts": ["star", "circle", "triangle", "triangle"], "equals": 22 },
-                            { "parts": ["triangle", "square", "square"], "equals": 19 }
-                        ],
-                        "unknowns": ["star", "circle", "triangle", "square"],
-                        "solution": { "star": 6, "circle": 5, "triangle": 5.5, "square": 6.75 },
-                        "hints": ["Bu problemde iki tane tek bilinmeyenli denklem var. İkisinden de başlayabilirsin.", "Yıldız ve daireyi bulduktan sonra üçüncü denkleme geçebilirsin.", "Üçgeni de bulduğuna göre, kareyi bulmak artık çok kolay olmalı."]
-                    },
-                    {
-                        "id": "4.2",
-                        "title": "Problem 4.2",
-                        "equations": [
-                            { "parts": ["triangle", "triangle"], "equals": 16 },
-                            { "parts": ["star", "star", "star"], "equals": 21 },
-                            { "parts": ["circle", "circle", "circle", "circle"], "equals": 28 },
-                            { "parts": ["triangle", "star", "circle", "square"], "equals": 25 }
-                        ],
-                        "unknowns": ["triangle", "star", "circle", "square"],
-                        "solution": { "triangle": 8, "star": 7, "circle": 7, "square": 3 },
-                        "hints": ["Üç tane kolay başlangıç noktan var. İstediğinle başla.", "İlk üç şekli bulduktan sonra son denklemi çözebilirsin.", "Sonuca çok yaklaştın!"]
-                    },
-                    {
-                        "id": "4.3",
-                        "title": "Problem 4.3",
-                        "equations": [
-                            { "parts": ["square", "square", "square"], "equals": 24 },
-                            { "parts": ["star", "star", "star", "star"], "equals": 20 },
-                            { "parts": ["square", "star", "circle", "circle"], "equals": 27 },
-                            { "parts": ["circle", "triangle", "triangle", "triangle"], "equals": 24 }
-                        ],
-                        "unknowns": ["square", "star", "circle", "triangle"],
-                        "solution": { "square": 8, "star": 5, "circle": 7, "triangle": 3.33 },
-                        "hints": ["Yine iki başlangıç noktan var. Kare veya yıldız.", "Kare ve yıldızı bulduktan sonra üçüncü denklemden daireyi bul.", "Artık son denkleme geçip üçgeni bulabilirsin. Sonuç tam sayı olmayabilir!"]
-                    }
-                ],
-                "readinessCheck": {
-                    "items": [
-                        "Ara sonuçları yazıyorum (kafadan tutmuyorum)",
-                        "Her denklemden sonra kontrol yapıyorum",
-                        "4 adımlı zincirde kaybolmuyorum"
-                    ],
-                    "tip": "Eğer zorlanıyorsan: Çözüm şeması çiz (kutu kutu, ok ok)"
-                },
-                "realLifeTransfer": {
-                    "title": "Günlük Hayatta Bu Beceri",
-                    "examples": [
-                       "**Alışveriş listesi:** Birden fazla mağazadan alışveriş planı (önce bakkal, sonra manav, sonra market, sonra kitapçı)",
-                       "**Günlük rutin:** Sabah hazırlık sırası (önce kalk, sonra yıkan, sonra kahvaltı, sonra giyinme)",
-                       "**Ödev organizasyonu:** Birden fazla ders için zaman planı"
-                    ]
-                },
-                "instructorNote": {
-                    "commonErrors": ["Ara sonucu unutma (zincir kopuyor)", "Hesap hatası (ondalıklı sayılar yeni)", "Kontrol yapmadan geçme"],
-                    "intervention": "\"Bulduğun değeri nereye yazdın?\" diye sor",
-                    "guidingQuestions": ["Bu uzun bir problem, planın ne?", "Not tutmak işe yarayabilir mi?"]
-                }
+              "id": "3.2",
+              "title": "Problem 3.2",
+              "equations": [
+                { "parts": ["square", "square", "square"], "equals": 21 },
+                { "parts": ["square", "star", "star", "star"], "equals": 22 },
+                { "parts": ["star", "star", "circle"], "equals": 13 }
+              ],
+              "unknowns": ["square", "star", "circle"],
+              "solution": { "square": 7, "star": 5, "circle": 3 },
+              "hints": ["Hangi denklemde tek çeşit şekil var?", "Kareyi bulduktan sonra yıldızı bulabileceğin denkleme bak.", "Kare = 7, Yıldız = 5. Artık daireyi bulmak çok kolay."]
+            },
+            {
+              "id": "3.3",
+              "title": "Problem 3.3",
+              "equations": [
+                { "parts": ["triangle", "triangle"], "equals": 14 },
+                { "parts": ["triangle", "star", "star"], "equals": 17 },
+                { "parts": ["star", "circle", "circle", "circle"], "equals": 20 }
+              ],
+              "unknowns": ["triangle", "star", "circle"],
+              "solution": { "triangle": 7, "star": 5, "circle": 5 },
+              "hints": ["Üçgenle başla.", "Sonra yıldızı bul.", "En son daireyi bularak problemi tamamla."]
             }
-        ],
-        "checkpoint": {
-            "title": "Checkpoint: Blok 2",
-            "problem": {
-                "id": "cp2",
-                "title": "Checkpoint: Blok 2",
-                "equations": [
-                    { "parts": ["star", "star", "star", "star"], "equals": 20 },
-                    { "parts": ["star", "circle", "circle", "circle"], "equals": 23 },
-                    { "parts": ["circle", "circle", "triangle", "triangle"], "equals": 22 },
-                    { "parts": ["triangle", "square", "square", "square"], "equals": 25 }
-                ],
-                "unknowns": ["star", "circle", "triangle", "square"],
-                "solution": { "star": 5, "circle": 6, "triangle": 5, "square": 5 },
-                "hints": [],
-                "checkpoint": true
+          ],
+          "readinessCheck": {
+            "items": [
+              "Başlamadan önce \"hangi sırayla?\" diye düşünüyorum",
+              "Her adımda ara kontrol yapıyorum",
+              "3 adımlı zinciri karıştırmadan takip edebiliyorum"
+            ],
+            "tip": "Eğer zorlanıyorsan: Çözüm adımlarını yazılı olarak işaretle (1→2→3)"
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": [
+              "**Ders çalışma planı:** \"Önce matematik, sonra Türkçe, sonra fen\" sıralaması yapma",
+              "**Proje yönetimi:** \"Önce malzemeleri topla, sonra kes, sonra yapıştır\"",
+              "**Satranç/strateji oyunları:** \"Eğer şu hamleyi yaparsam, sonra şunu yapabilirim, sonra...\""
+            ]
+          },
+          "instructorNote": {
+            "commonErrors": ["Ara sonucu unutma (zincir kopuyor)", "Yanlış sırayla çözme", "Kontrol yapmadan geçme"],
+            "intervention": "\"Hangi denklemle başlamak daha mantıklı?\" diye sor",
+            "guidingQuestions": ["Bulduğun değeri nereye yazdın?", "Sonraki adım ne olmalı?"]
+          }
+        },
+        {
+          "id": 4,
+          "title": "Level 4: Dörtlü Zincir",
+          "focus": "Uzun zincirde konsantrasyonu koruma ve not tutma",
+          "mainSkill": "Uzun zincirde konsantrasyonu koruma ve not tutma",
+          "mentalSentence": "\"4 denklem uzun ama mantık aynı. Adım adım, kontrollü. Acele yok.\"",
+          "deliberateDifficulty": "Daha uzun zincir. Bilgi kaybolması riski. Not tutma zorunlu hale geliyor.",
+          "autoBehavior": "Ara sonuçları yazma (kafadan tutmaya çalışmama)",
+          "problemCount": 3,
+          "avgTime": "25-30 dakika",
+          "successCrit": "3'ten 2'sini bağımsız çözme",
+          "nextLevel": "Level 5 (Sen Karar Ver)",
+          "tools": ["A4 kağıt (geniş çalışma alanı)", "Cetvelli not şablonu", "Hesap makinesi (sadece doğrulama için, çözüm için değil)"],
+          "problems": [
+            {
+              "id": "4.1",
+              "title": "Problem 4.1",
+              "equations": [
+                { "parts": ["star", "star"], "equals": 10 },
+                { "parts": ["circle", "circle", "circle"], "equals": 21 },
+                { "parts": ["star", "circle", "triangle"], "equals": 18 },
+                { "parts": ["triangle", "square"], "equals": 10 }
+              ],
+              "unknowns": ["star", "circle", "triangle", "square"],
+              "solution": { "star": 5, "circle": 7, "triangle": 6, "square": 4 },
+              "hints": ["Bu problemde iki tane tek bilinmeyenli denklem var. İkisinden de başlayabilirsin.", "Yıldız ve daireyi bulduktan sonra üçüncü denkleme geçebilirsin.", "Üçgeni de bulduğuna göre, kareyi bulmak artık çok kolay olmalı."]
             },
-            "passCondition": "Blok 3'e geçmeye hazırsın ✅",
-            "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
+            {
+              "id": "4.2",
+              "title": "Problem 4.2",
+              "equations": [
+                { "parts": ["triangle", "triangle"], "equals": 16 },
+                { "parts": ["star", "star", "star"], "equals": 21 },
+                { "parts": ["circle", "circle", "circle", "circle"], "equals": 28 },
+                { "parts": ["triangle", "star", "circle", "square"], "equals": 25 }
+              ],
+              "unknowns": ["triangle", "star", "circle", "square"],
+              "solution": { "triangle": 8, "star": 7, "circle": 7, "square": 3 },
+              "hints": ["Üç tane kolay başlangıç noktan var. İstediğinle başla.", "İlk üç şekli bulduktan sonra son denklemi çözebilirsin.", "Sonuca çok yaklaştın!"]
+            },
+            {
+              "id": "4.3",
+              "title": "Problem 4.3",
+              "equations": [
+                { "parts": ["square", "square", "square"], "equals": 24 },
+                { "parts": ["star", "star", "star", "star"], "equals": 20 },
+                { "parts": ["square", "star", "circle", "circle"], "equals": 27 },
+                { "parts": ["circle", "triangle", "triangle", "triangle"], "equals": 25 }
+              ],
+              "unknowns": ["square", "star", "circle", "triangle"],
+              "solution": { "square": 8, "star": 5, "circle": 7, "triangle": 6 },
+              "hints": ["Yine iki başlangıç noktan var. Kare veya yıldız.", "Kare ve yıldızı bulduktan sonra üçüncü denklemden daireyi bul.", "Artık son denkleme geçip üçgeni bulabilirsin."]
+            }
+          ],
+          "readinessCheck": {
+            "items": [
+              "Ara sonuçları yazıyorum (kafadan tutmuyorum)",
+              "Her denklemden sonra kontrol yapıyorum",
+              "4 adımlı zincirde kaybolmuyorum"
+            ],
+            "tip": "Eğer zorlanıyorsan: Çözüm şeması çiz (kutu kutu, ok ok)"
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": [
+              "**Alışveriş listesi:** Birden fazla mağazadan alışveriş planı (önce bakkal, sonra manav, sonra market, sonra kitapçı)",
+              "**Günlük rutin:** Sabah hazırlık sırası (önce kalk, sonra yıkan, sonra kahvaltı, sonra giyinme)",
+              "**Ödev organizasyonu:** Birden fazla ders için zaman planı"
+            ]
+          },
+          "instructorNote": {
+            "commonErrors": ["Ara sonucu unutma (zincir kopuyor)", "Hesap hatası (ondalıklı sayılar yeni)", "Kontrol yapmadan geçme"],
+            "intervention": "\"Bulduğun değeri nereye yazdın?\" diye sor",
+            "guidingQuestions": ["Bu uzun bir problem, planın ne?", "Not tutmak işe yarayabilir mi?"]
+          }
         }
+      ],
+      "checkpoint": {
+        "title": "Checkpoint: Blok 2",
+        "problem": {
+          "id": "cp2",
+          "title": "Checkpoint: Blok 2",
+          "equations": [
+            { "parts": ["star", "star", "star", "star"], "equals": 20 },
+            { "parts": ["star", "circle", "circle", "circle"], "equals": 23 },
+            { "parts": ["circle", "circle", "triangle", "triangle"], "equals": 22 },
+            { "parts": ["triangle", "square", "square", "square"], "equals": 26 }
+          ],
+          "unknowns": ["star", "circle", "triangle", "square"],
+          "solution": { "star": 5, "circle": 6, "triangle": 5, "square": 7 },
+          "hints": [],
+          "checkpoint": true
+        },
+        "passCondition": "Blok 3'e geçmeye hazırsın ✅",
+        "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
+      }
     },
     {
       "id": 3,
@@ -449,7 +449,7 @@
             { "parts": ["star", "circle", "circle", "triangle", "triangle"], "equals": 28 },
             { "parts": ["square", "square", "square"], "equals": 21 },
             { "parts": ["star", "star", "square", "triangle"], "equals": 24 },
-            { "parts": ["circle", "triangle", "square", "star"], "equals": 25 }
+            { "parts": ["circle", "triangle", "square", "star"], "equals": 23 }
           ],
           "unknowns": ["star", "circle", "triangle", "square"],
           "solution": { "square": 7, "star": 5, "circle": 6, "triangle": 5 },
@@ -459,8 +459,336 @@
         "passCondition": "Blok 4'e geçmeye hazırsın ✅",
         "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
       }
+    },
+    {
+      "id": 4,
+      "title": "BLOK 4: DOĞRULAMA",
+      "rationale": "Blok 4 (Doğrulama), öğrencinin \"çözüm bitti\" dediği noktadan \"çözüm doğru mu?\" diye sorduğu noktaya geçişidir. Bu blok, kullanıcının paylaştığı Level 9 görseline en çok yaklaşan hazırlık aşamasıdır. Grid formatı, satır ve sütun toplamları ile çift yönlü doğrulama yapabilme becerisi, master seviyeye ulaşmanın anahtarıdır. Araştırmalar gösteriyor ki, sistematik doğrulama yapan öğrenciler, karmaşık problemlerde %70 daha az hata yapıyor (Singapur Matematik müfredatı, \"Verification Strategies\" bölümü).",
+      "levels": [
+        {
+          "id": 6,
+          "title": "Level 6: Grid Görme",
+          "focus": "Satırların sütun olarak da okunabildiğini görmek",
+          "mainSkill": "Satırların sütun olarak da okunabildiğini görmek",
+          "mentalSentence": "\"Satırları çözüyorum ama sütunlar da var. Hem yatay hem dikey düşünebilirim.\"",
+          "deliberateDifficulty": "İki boyutlu düşünme. Şimdiye kadar sadece yatay (satır), şimdi dikey (sütun) ekleniyor.",
+          "autoBehavior": "Grid gördüğümde hem satır hem sütun olarak okuma",
+          "problemCount": 3,
+          "avgTime": "20-25 dakika",
+          "successCrit": "3'ten 2'sini bağımsız çözme",
+          "nextLevel": "Level 7 (Çapraz Doğrulama)",
+          "tools": ["Grid kağıtları (kareli defter)", "Cetvel (satır/sütun takibi için)", "İki farklı renk kalem (satır için bir renk, sütun için başka renk)"],
+          "problems": [
+            {
+              "id": "6.1",
+              "title": "Problem 6.1",
+              "equations": [
+                { "parts": ["star", "star", "circle"], "equals": ["star", "+", 11] },
+                { "parts": ["circle", "triangle", "triangle"], "equals": ["star", "+", 12] },
+                { "parts": ["star", "triangle", "circle"], "equals": 17 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 5, "circle": 6, "triangle": 6 },
+              "hints": ["İlk denklem ilginç görünüyor. İki tarafında da yıldız var. Sadeleştirmeyi dene.", "Bir yıldız = 11. Bunu bulduktan sonra diğer denklemlerde yerine koy.", "Artık bu senin için kolay bir problem olmalı."]
+            },
+            {
+              "id": "6.2",
+              "title": "Problem 6.2",
+              "equations": [
+                { "parts": ["triangle", "triangle", "star"], "equals": ["triangle", "+", 12] },
+                { "parts": ["star", "circle", "circle"], "equals": 17 },
+                { "parts": ["triangle", "circle", "star"], "equals": 18 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 5, "circle": 6, "triangle": 7 },
+              "hints": ["Yine sadeleştirme ile başlayabilirsin.", "Üçgen + Yıldız = 12. Bu bilgiyi diğer denklemlerle nasıl birleştirebilirsin?", "Üçüncü denklemde Üçgen ve Yıldız var. Onların yerine 12 koyarsan daireyi bulabilirsin."]
+            },
+            {
+              "id": "6.3",
+              "title": "Problem 6.3",
+              "equations": [
+                { "parts": ["circle", "star", "star"], "equals": 15 },
+                { "parts": ["star", "circle", "triangle"], "equals": ["triangle", "+", 10] },
+                { "parts": ["triangle", "triangle", "circle"], "equals": 17 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 5, "circle": 5, "triangle": 6 },
+              "hints": ["Hangi denklemle başlamak en mantıklısı?", "İkinci denklemi sadeleştirmeyi denedin mi? Daire + Yıldız = 10.", "İlk denklemde bir daire ve bir yıldız yerine 10 koyarsan, ikinci yıldızı bulabilirsin."]
+            }
+          ],
+          "readinessCheck": {
+            "items": ["Grid gördüğümde hem satır hem sütun olarak düşünüyorum", "Satır toplamları = sütun toplamları kontrolünü yapıyorum", "Dikey okumayı doğal yapıyorum"],
+            "tip": "Eğer zorlanıyorsan: Grid'i fiziksel olarak çiz, parmakla takip et"
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": ["**Excel/tablo çalışmaları:** Hem satır hem sütun toplamlarını kontrol etme", "**Sudoku/bulmaca oyunları:** İki yönlü düşünme gerektiren tüm oyunlar", "**Organizasyon:** Haftalık program yapma (günler x aktiviteler grid'i)"]
+          },
+          "instructorNote": {
+            "commonErrors": ["Satır-sütun karıştırma (yatay-dikey)", "Doğrulama yapmadan geçme"],
+            "intervention": "\"Kontrol ettin mi?\" diye sor ama neyi kontrol edeceğini söyleme",
+            "guidingQuestions": ["Bu problemi farklı bir yoldan çözebilir misin?", "Satırlar ve sütunlar arasında bir ilişki var mı?"]
+          }
+        },
+        {
+          "id": 7,
+          "title": "Level 7: İlişkisel Çıkarım",
+          "focus": "İki denklemi karşılaştırarak aradaki farktan sonuç çıkarma",
+          "mainSkill": "İki denklemi karşılaştırarak aradaki farktan sonuç çıkarma",
+          "mentalSentence": "\"Bu iki denklem birbirine çok benziyor. Aralarındaki fark ne? O fark bana ne söylüyor?\"",
+          "deliberateDifficulty": "Doğrudan çözüm yok. İki denklemi birbiriyle ilişkilendirip yeni bir denklem (çıkarım) üretmek gerekiyor.",
+          "autoBehavior": "Benzer denklemler görünce otomatik olarak farklarına bakma",
+          "problemCount": 2,
+          "avgTime": "25-30 dakika",
+          "successCrit": "2'den 2'sini bağımsız çözme",
+          "nextLevel": "Level 8 (Tutarsız Veri Avı)",
+          "tools": ["İki denklemi alt alta yazma", "Farklı olan elemanları daire içine alma", "Çıkarım denklemi için ayrı bir not kağıdı"],
+          "problems": [
+            {
+              "id": "7.1",
+              "title": "Problem 7.1",
+              "equations": [
+                { "parts": ["star", "star", "circle"], "equals": 14 },
+                { "parts": ["star", "circle", "circle"], "equals": 16 },
+                { "parts": ["star", "circle", "triangle"], "equals": 15 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 4, "circle": 6, "triangle": 5 },
+              "hints": ["İlk iki denkleme dikkatlice bak. Neredeyse aynılar. Aralarındaki fark ne?", "İlk denklemden ikinci denkleme geçerken bir yıldız, bir daire ile yer değiştiriyor ve toplam 2 artıyor. Bu ne anlama gelir?", "Daire, yıldızdan 2 fazladır (🔵 = ⭐ + 2). Bu yeni bilgiyi ilk denklemde kullan: ⭐ + ⭐ + (⭐ + 2) = 14."]
+            },
+            {
+              "id": "7.2",
+              "title": "Problem 7.2",
+              "equations": [
+                { "parts": ["triangle", "star", "star"], "equals": 16 },
+                { "parts": ["triangle", "triangle", "star"], "equals": 17 },
+                { "parts": ["triangle", "star", "circle"], "equals": 18 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 5, "circle": 7, "triangle": 6 },
+              "hints": ["Yine ilk iki denklemi karşılaştır. Bir yıldız bir üçgen ile yer değiştirince toplam 1 artıyor. Ne anlama gelir?", "Üçgen, yıldızdan 1 fazladır (△ = ⭐ + 1).", "Bu bilgiyi ilk denklemde yerine koy: (⭐ + 1) + ⭐ + ⭐ = 16. Artık yıldızı bulabilirsin."]
+            }
+          ],
+          "readinessCheck": {
+            "items": ["Çözümden sonra otomatik olarak 6 kontrol yapıyorum", "Eğer bir toplam uymazsa, hatayı bulup düzeltiyorum", "Doğrulama yapmadan \"bitti\" demiyorum"],
+            "tip": "Eğer zorlanıyorsan: Kontrol listesi kullan (fiziksel checklist)"
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": ["**Ödev kontrolü:** \"Tüm soruları çözdüm mü? Her birini kontrol ettim mi?\"", "**Alışveriş:** \"Fişte yazan toplam, benim hesapladığım toplama eşit mi?\"", "**Proje teslimi:** \"Tüm bölümleri tamamladım mı? Her bölüm gereklilikleri karşılıyor mu?\""]
+          },
+          "instructorNote": {
+            "commonErrors": ["Satır-sütun karıştırma (yatay-dikey)", "Doğrulama yapmadan geçme"],
+            "intervention": "\"Kontrol ettin mi?\" diye sor ama neyi kontrol edeceğini söyleme",
+            "guidingQuestions": ["Bu iki denklem arasında nasıl bir ilişki var?", "Birini diğerinden çıkarsan ne elde edersin?"]
+          }
+        }
+      ],
+      "checkpoint": {
+        "title": "Checkpoint: Blok 4",
+        "problem": {
+          "id": "cp4",
+          "title": "Checkpoint: Blok 4",
+          "equations": [
+            { "parts": ["star", "circle", "triangle"], "equals": 17 },
+            { "parts": ["triangle", "star", "circle"], "equals": 17 },
+            { "parts": ["circle", "triangle", "star"], "equals": 17 }
+          ],
+          "unknowns": ["star", "circle", "triangle"],
+          "solution": { "star": 5, "circle": 6, "triangle": 6 },
+          "hints": [],
+          "checkpoint": true
+        },
+        "passCondition": "Blok 5'e geçmeye hazırsın ✅",
+        "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
+      }
+    },
+    {
+      "id": 5,
+      "title": "BLOK 5: HATA AVCISI",
+      "rationale": "Blok 5 (Hata Avcısı), öğrencinin \"verilen bilgiler her zaman doğrudur\" varsayımından \"verileri sorgulamalıyım\" anlayışına geçişidir. Gerçek hayatta, problemlerdeki bilgiler her zaman doğru olmaz. Veri girişi hataları, ölçüm hataları, yanlış varsayımlar... Tutarsızlıkları fark etme ve hangi bilginin yanlış olduğunu bulma becerisi, kritik düşünmenin temelidir. Bilimsel yöntemin (scientific method) özü budur: hipotez test etme, tutarsızlık bulma, doğru açıklamaya ulaşma.",
+      "levels": [
+        {
+          "id": 8,
+          "title": "Level 8: Tutarsız Veri Avı",
+          "focus": "Tutarsızlıkları fark etme ve hangi denklemin hatalı olduğunu bulma",
+          "mainSkill": "Tutarsızlıkları fark etme ve hangi denklemin hatalı olduğunu bulma",
+          "mentalSentence": "\"Çözüm tutmuyor. Demek ki verilen toplamlardan biri yanlış. Hangisi?\"",
+          "deliberateDifficulty": "Bu level'daki problemler kasıtlı olarak tutarsız. Senin görevin çözmek değil, hatayı bulmak.",
+          "autoBehavior": "Tutarsızlık gördüğümde panik yapmama, sistematik analiz yapma",
+          "problemCount": 3,
+          "avgTime": "30-35 dakika",
+          "successCrit": "3'ten 2'sini bağımsız analiz etme",
+          "nextLevel": "Level 9 (Master Challenge)",
+          "tools": ["Hipotez testi şablonu (\"Eğer X yanlışsa ne olur?\")", "Sistematik kontrol listesi", "İki renk kalem (verilen bilgi vs hesaplanan değer)"],
+          "problems": [
+            {
+              "id": "8.1",
+              "title": "Problem 8.1 - Hatalı Toplam Avı",
+              "equations": [
+                { "parts": ["star", "star", "circle"], "equals": 16 },
+                { "parts": ["circle", "triangle", "triangle"], "equals": 16 },
+                { "parts": ["star", "triangle", "circle"], "equals": 15 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 5, "circle": 6, "triangle": 5 },
+              "hints": ["Önce problemi normal bir şekilde çözmeye çalış. Bakalım ne olacak.", "Eğer birbiriyle çelişen sonuçlar buluyorsan, denklemlerden biri hatalı demektir. Hangi denklemlerin birbiriyle tutarlı olduğunu kontrol et.", "İlk iki denklemden yola çıkarsan Yıldız=5, Daire=6, Üçgen=5 bulursun. Bu sonuçları üçüncü denklemde yerine koyunca ne oluyor? 5+5+6 = 16 ediyor, ama denklem 15 diyor. Hata üçüncü denklemde!"]
+            },
+            {
+              "id": "8.2",
+              "title": "Problem 8.2 - Çözülemeyen Sistem",
+              "equations": [
+                { "parts": ["star", "star", "star"], "equals": 15 },
+                { "parts": ["circle", "circle", "triangle"], "equals": 20 },
+                { "parts": ["star", "circle", "triangle"], "equals": 18 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "star": 5, "circle": 7, "triangle": 6 },
+              "hints": ["İlk denklem sana yıldızın değerini veriyor.", "Yıldız=5. Bu bilgiyi son denklemde kullan: 5 + Daire + Üçgen = 18. Yani Daire + Üçgen = 13.", "İkinci denkleme bak: 2*Daire + Üçgen = 20. Elimizde iki yeni denklem var: D+T=13 ve 2D+T=20. Bu ikisini karşılaştırarak Daire'yi bulabilirsin. Sonra da Üçgen'i."]
+            },
+            {
+              "id": "8.3",
+              "title": "Problem 8.3 - Sen Bul",
+              "equations": [
+                { "parts": ["triangle", "triangle", "star"], "equals": 19 },
+                { "parts": ["star", "circle", "circle"], "equals": 17 },
+                { "parts": ["triangle", "circle", "star"], "equals": 18 }
+              ],
+              "unknowns": ["star", "circle", "triangle"],
+              "solution": { "triangle": 7, "star": 5, "circle": 6 },
+              "hints": ["Bu problemde bir tutarsızlık yok, sadece bir önceki problem gibi çözülüyor.", "Hangi denklemle başlayacağına karar veremiyorsan, denklemleri birbirleriyle karşılaştırmayı dene.", "İstersen ilk denklemden başla: 2Ü+Y=19. İkinci denklem: Y+2D=17. Üçüncü denklem: Ü+D+Y=18. Üçüncü denklemi kullanarak ilk iki denklemde yerine koyma yapabilirsin."]
+            }
+          ],
+          "readinessCheck": {
+            "items": ["Tutarsızlık gördüğümde panik yapmıyorum", "Sistematik olarak hangi denklemin yanlış olduğunu buluyorum", "Doğru değeri hesaplayabiliyorum", "Hipotez testi yapabiliyorum"],
+            "tip": "Eğer zorlanıyorsan: Level 7'ye dön - çapraz doğrulama otomatik değilse hata yakalayamazsın"
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": ["**Haber okuma:** \"Bu haberdeki sayılar tutarlı mı? Kaynak güvenilir mi?\"", "**Alışveriş:** \"Fişte bir hata var gibi, toplam yanlış görünüyor\"", "**Bilimsel düşünme:** \"Deney sonuçları beklediğimle uyuşmuyor, nerede hata yaptım?\"", "**Tartışma:** \"Arkadaşımın argümanında bir çelişki var, hangi nokta tutarsız?\""]
+          },
+          "instructorNote": {
+            "commonErrors": ["İlk başta kafası karışma (\"neden tutmuyor?\")", "Kendi hata yaptığını düşünme"],
+            "intervention": "\"Belki verilen toplamlardan biri yanlıştır\" de",
+            "guidingQuestions": ["Bu sonuçlar birbiriyle çelişiyor mu?", "Hangi bilgiye güvenebiliriz?"]
+          }
+        }
+      ],
+      "checkpoint": {
+        "title": "Checkpoint: Blok 5",
+        "problem": {
+          "id": "cp5",
+          "title": "Checkpoint: Blok 5",
+          "equations": [
+            { "parts": ["star", "star", "circle", "triangle"], "equals": 22 },
+            { "parts": ["triangle", "circle", "star", "star"], "equals": 22 },
+            { "parts": ["circle", "triangle", "triangle", "star"], "equals": 24 }
+          ],
+          "unknowns": ["star", "circle", "triangle"],
+          "solution": { "star": 5, "circle": 6, "triangle": 6 },
+          "hints": [],
+          "checkpoint": true
+        },
+        "passCondition": "Blok 6'ya geçmeye hazırsın ✅",
+        "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
+      }
+    },
+    {
+      "id": 6,
+      "title": "BLOK 6: MASTER",
+      "rationale": "Blok 6 (Master), tüm öğrenilen becerilerin sentezlendiği, karmaşık ve açık uçlu problemlerin çözüldüğü seviyedir. Bu aşamada öğrenci artık strateji seçimi yapabiliyor, planını yürütebiliyor, sistematik doğrulama yapabiliyor ve tutarsızlıkları yakalayabiliyor. Master seviyeye ulaşan öğrenci, sadece bu spesifik problem türünü değil, problem çözme yaklaşımını öğrenmiştir. Bu yaklaşım, tüm STEM alanlarında, hayat boyu kullanılacak bir beceridir.",
+      "levels": [
+        {
+          "id": 9,
+          "title": "Level 9: Master Challenge",
+          "focus": "Tüm becerileri birleştirerek bağımsız çözme",
+          "mainSkill": "Tüm becerileri birleştirerek bağımsız çözme",
+          "mentalSentence": "\"Karmaşık ama hazırım. Analiz edeceğim, stratejimi belirleyeceğim, adım adım çözeceğim ve kontrol edeceğim.\"",
+          "deliberateDifficulty": "İki adımlı ilişkiler + sistem çözme + stratejik analiz - hepsi bir arada. Hiç ipucu yok.",
+          "autoBehavior": "Tüm öğrendiklerin otomatik ve akıcı şekilde kullanılması",
+          "problemCount": 2,
+          "avgTime": "40-50 dakika",
+          "successCrit": "Problemleri bağımsız çözme ve stratejini açıklayabilme",
+          "nextLevel": "TEBRİKLER! 🏆",
+          "tools": ["Boş bir sayfa", "Kalem", "Beyin"],
+          "problems": [
+            {
+              "id": "9.1",
+              "title": "Problem 9.1 - Master Challenge",
+              "equations": [
+                { "parts": ["triangle", "square", "square", "triangle"], "equals": 26 },
+                { "parts": ["square", "circle", "circle", "triangle"], "equals": 24 },
+                { "parts": ["triangle", "circle", "star", "star"], "equals": 28 },
+                { "parts": ["star", "triangle", "square", "circle"], "equals": 27 }
+              ],
+              "unknowns": ["star", "circle", "triangle", "square"],
+              "solution": { "triangle": 5, "square": 8, "circle": 6, "star": 9 },
+              "hints": [
+                "İlk denklemden bir çıkarım yapabilir misin? 2Ü+2K=26 ise Ü+K kaçtır?", 
+                "Üçgen + Kare = 13. Bu bilgiyi son denklemde kullanmayı dene.", 
+                "Son denklemde (Ü+K) yerine 13 koyarsan, Y+D = 14 bulursun. Artık elinde çözebileceğin bir sistem var."
+              ]
+            },
+            {
+              "id": "9.2",
+              "title": "Problem 9.2 - Master Challenge 2",
+              "equations": [
+                { "parts": ["star", "star", "star", "star"], "equals": 20 },
+                { "parts": ["circle", "circle", "circle"], "equals": 24 },
+                { "parts": ["star", "circle", "triangle", "triangle"], "equals": 23 },
+                { "parts": ["triangle", "square", "square", "star"], "equals": 21 }
+              ],
+              "unknowns": ["star", "circle", "triangle", "square"],
+              "solution": { "star": 5, "circle": 8, "triangle": 5, "square": 3 },
+              "hints": ["Başlangıç noktalarını tespit et.", "İlk iki denklem sana yıldız ve dairenin değerini doğrudan veriyor.", "Bulduğun değerleri diğer denklemlerde yerine koyarak adım adım ilerle."]
+            }
+          ],
+          "readinessCheck": {
+            "items": [
+              "Stratejik düşünmeyi öğrendim",
+              "Planlı çözüm yapıyorum",
+              "Doğrulama refleksim var",
+              "Tutarsızlıkları yakalıyorum",
+              "Bağımsız çözüyorum"
+            ],
+            "tip": "Tebrikler, sen artık bir problem çözme ustasısın!"
+          },
+          "realLifeTransfer": {
+            "title": "Günlük Hayatta Bu Beceri",
+            "examples": [
+              "**LGS, üniversite sınavları:** Karmaşık problemleri parçalara ayırıp çözme.",
+              "**Bilimsel araştırma:** Hipotez kurma, test etme ve sonuçları doğrulama.",
+              "**Yazılım geliştirme:** Hata ayıklama (debugging) ve algoritma tasarlama.",
+              "**Proje yönetimi:** Kaynakları planlama ve adımları sıralama.",
+              "**Günlük hayatın her alanı:** Karşılaşılan herhangi bir soruna sistematik yaklaşma."
+            ]
+          },
+          "instructorNote": {
+            "commonErrors": ["Acele edip plan yapmadan başlamak", "Doğrulama adımını atlamak"],
+            "intervention": "Sadece \"Emin misin?\" veya \"Planın ne?\" diye sor.",
+            "guidingQuestions": ["Bu problemi çözmek için hangi becerilerini kullandın?", "Farklı bir yoldan çözebilir miydin?"]
+          }
+        }
+      ],
+      "checkpoint": {
+        "title": "Checkpoint: Blok 6 - FİNAL",
+        "problem": {
+          "id": "cp6",
+          "title": "Final Checkpoint",
+          "equations": [
+            { "parts": ["star", "circle", "triangle", "square"], "equals": 30 },
+            { "parts": ["star", "star", "circle", "circle"], "equals": 26 },
+            { "parts": ["triangle", "triangle", "square", "square"], "equals": 34 },
+            { "parts": ["star", "triangle"], "equals": ["square", "+", 2] }
+          ],
+          "unknowns": ["star", "circle", "triangle", "square"],
+          "solution": { "star": 6, "circle": 7, "triangle": 8, "square": 9 },
+          "hints": [],
+          "checkpoint": true
+        },
+        "passCondition": "TEBRİKLER! OYUNU BİTİRDİN! 🏆",
+        "failCondition": "Son bir tekrar için ilgili bloğa geri dön."
+      }
     }
   ]
 }
-
-    
