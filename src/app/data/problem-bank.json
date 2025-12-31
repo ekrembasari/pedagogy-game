@@ -207,12 +207,12 @@
               "title": "Problem 3.1",
               "equations": [
                 { "parts": ["star", "star", "star", "star"], "equals": 16 },
-                { "parts": ["star", "star", "circle", "circle"], "equals": 18 },
-                { "parts": ["circle", "triangle", "triangle"], "equals": 15 }
+                { "parts": ["star", "star", "circle", "circle"], "equals": 20 },
+                { "parts": ["circle", "triangle", "triangle"], "equals": 18 }
               ],
               "unknowns": ["star", "circle", "triangle"],
-              "solution": { "star": 4, "circle": 5, "triangle": 5 },
-              "hints": ["Önce sadece yıldız olan denklemle başla.", "Yıldızı bulduktan sonra ikinci denkleme geçerek daireyi bulabilirsin.", "Yıldız = 4, Daire = 5. Şimdi üçgeni bulabilirsin."]
+              "solution": { "star": 4, "circle": 6, "triangle": 6 },
+              "hints": ["Önce sadece yıldız olan denklemle başla.", "Yıldızı bulduktan sonra ikinci denkleme geçerek daireyi bulabilirsin.", "Yıldız = 4, Daire = 6. Şimdi üçgeni bulabilirsin."]
             },
             {
               "id": "3.2",
@@ -282,10 +282,10 @@
                 { "parts": ["star", "star"], "equals": 10 },
                 { "parts": ["circle", "circle", "circle"], "equals": 21 },
                 { "parts": ["star", "circle", "triangle"], "equals": 18 },
-                { "parts": ["triangle", "square"], "equals": 10 }
+                { "parts": ["triangle", "square", "square"], "equals": 12 }
               ],
               "unknowns": ["star", "circle", "triangle", "square"],
-              "solution": { "star": 5, "circle": 7, "triangle": 6, "square": 4 },
+              "solution": { "star": 5, "circle": 7, "triangle": 6, "square": 3 },
               "hints": ["Bu problemde iki tane tek bilinmeyenli denklem var. İkisinden de başlayabilirsin.", "Yıldız ve daireyi bulduktan sonra üçüncü denkleme geçebilirsin.", "Üçgeni de bulduğuna göre, kareyi bulmak artık çok kolay olmalı."]
             },
             {
@@ -467,32 +467,32 @@
       "levels": [
         {
           "id": 6,
-          "title": "Level 6: Grid Görme",
-          "focus": "Satırların sütun olarak da okunabildiğini görmek",
-          "mainSkill": "Satırların sütun olarak da okunabildiğini görmek",
-          "mentalSentence": "\"Satırları çözüyorum ama sütunlar da var. Hem yatay hem dikey düşünebilirim.\"",
-          "deliberateDifficulty": "İki boyutlu düşünme. Şimdiye kadar sadece yatay (satır), şimdi dikey (sütun) ekleniyor.",
-          "autoBehavior": "Grid gördüğümde hem satır hem sütun olarak okuma",
+          "title": "Level 6: İlişkiye Gir",
+          "focus": "İki denklemi karşılaştırarak aradaki farktan sonuç çıkarma",
+          "mainSkill": "İlişkisel Çıkarım",
+          "mentalSentence": "\"Bu iki denklem birbirine çok benziyor. Aralarındaki fark ne? O fark bana ne söylüyor?\"",
+          "deliberateDifficulty": "Doğrudan çözüm yok. İki denklemi birbiriyle ilişkilendirip yeni bir denklem (çıkarım) üretmek gerekiyor.",
+          "autoBehavior": "Benzer denklemler görünce otomatik olarak farklarına bakma",
           "problemCount": 3,
           "avgTime": "20-25 dakika",
           "successCrit": "3'ten 2'sini bağımsız çözme",
           "nextLevel": "Level 7 (Çapraz Doğrulama)",
-          "tools": ["Grid kağıtları (kareli defter)", "Cetvel (satır/sütun takibi için)", "İki farklı renk kalem (satır için bir renk, sütun için başka renk)"],
+          "tools": ["İki denklemi alt alta yazma", "Farklı olan elemanları daire içine alma", "Çıkarım denklemi için ayrı bir not kağıdı"],
           "problems": [
             {
               "id": "6.1",
               "title": "Problem 6.1",
               "equations": [
-                { "parts": ["star", "star", "circle"], "equals": 20 },
-                { "parts": ["star", "circle", "circle"], "equals": 22 },
-                { "parts": ["star", "triangle", "circle"], "equals": 21 }
+                { "parts": ["star", "circle"], "equals": 10 },
+                { "parts": ["star", "star", "circle"], "equals": 16 },
+                { "parts": ["circle", "triangle", "star"], "equals": 20 }
               ],
               "unknowns": ["star", "circle", "triangle"],
-              "solution": { "star": 6, "circle": 8, "triangle": 7 },
+              "solution": { "star": 6, "circle": 4, "triangle": 10 },
               "hints": [
-                "İlk iki denkleme dikkatlice bak. Neredeyse aynılar. Aralarındaki fark ne?",
-                "İlk denklemden ikinciye geçerken bir yıldız, bir daire ile yer değiştiriyor ve toplam 2 artıyor. Bu ne anlama gelir?",
-                "Daire, yıldızdan 2 fazladır (🔵 = ⭐ + 2). Bu yeni bilgiyi ilk denklemde kullan: ⭐ + ⭐ + (⭐ + 2) = 20. Buradan yıldızı bulabilirsin."
+                "İlk iki denkleme dikkatlice bak. İkincisi, birincisinden sadece bir yıldız fazla. Bu sana ne söylüyor?",
+                "İkinci denklemin toplamı (16), birinci denklemin toplamından (10) 6 fazla. Demek ki fazladan eklenen yıldızın değeri 6 olmalı.",
+                "Yıldız = 6. Bu bilgiyi ilk denklemde kullanarak daireyi bul. Sonra da hepsini üçüncü denklemde kullan."
               ]
             },
             {
@@ -507,8 +507,8 @@
               "solution": { "star": 4, "circle": 6, "triangle": 8 },
               "hints": [
                 "Yine ilk iki denklemi karşılaştır. Bir üçgen bir yıldız ile yer değiştirince toplam 4 azalıyor. Ne anlama gelir?",
-                "Yıldız, üçgenden 4 eksiktir (⭐ = △ - 4).",
-                "Bu bilgiyi ilk denklemde yerine koy: △ + △ + (△ - 4) = 24. Artık üçgeni bulabilirsin."
+                "Üçgen, yıldızdan 4 fazladır (△ = ⭐ + 4).",
+                "Bu bilgiyi ikinci denklemde yerine koy: (⭐ + 4) + ⭐ + ⭐ = 20. Artık yıldızı bulabilirsin."
               ]
             },
             {
@@ -540,12 +540,12 @@
         },
         {
           "id": 7,
-          "title": "Level 7: İlişkisel Çıkarım",
-          "focus": "İki denklemi karşılaştırarak aradaki farktan sonuç çıkarma",
-          "mainSkill": "İki denklemi karşılaştırarak aradaki farktan sonuç çıkarma",
-          "mentalSentence": "\"Bu iki denklem birbirine çok benziyor. Aralarındaki fark ne? O fark bana ne söylüyor?\"",
-          "deliberateDifficulty": "Doğrudan çözüm yok. İki denklemi birbiriyle ilişkilendirip yeni bir denklem (çıkarım) üretmek gerekiyor.",
-          "autoBehavior": "Benzer denklemler görünce otomatik olarak farklarına bakma",
+          "title": "Level 7: İlişkisel Çıkarım (Zorunlu)",
+          "focus": "İlişkisel çıkarımı ana çözüm stratejisi olarak kullanma",
+          "mainSkill": "İlişkisel Çıkarımı ana strateji olarak kullanma",
+          "mentalSentence": "\"Doğrudan çözüm yok. Önce iki denklemi karşılaştırıp yeni bir ipucu üretmeliyim.\"",
+          "deliberateDifficulty": "Problem, sadece ilişkisel çıkarım ile çözülebilir. 'Yerine koyma' tek başına yetersiz kalır.",
+          "autoBehavior": "Doğrudan çözülemeyen bir sistem gördüğünde, denklemleri karşılaştırma moduna geçme",
           "problemCount": 2,
           "avgTime": "25-30 dakika",
           "successCrit": "2'den 2'sini bağımsız çözme",
@@ -562,7 +562,7 @@
               ],
               "unknowns": ["star", "circle", "triangle"],
               "solution": { "star": 4, "circle": 6, "triangle": 5 },
-              "hints": ["İlk iki denkleme dikkatlice bak. Neredeyse aynılar. Aralarındaki fark ne?", "İlk denklemden ikinci denkleme geçerken bir yıldız, bir daire ile yer değiştiriyor ve toplam 2 artıyor. Bu ne anlama gelir?", "Daire, yıldızdan 2 fazladır (🔵 = ⭐ + 2). Bu yeni bilgiyi ilk denklemde kullan: ⭐ + ⭐ + (⭐ + 2) = 14."]
+              "hints": ["İlk iki denkleme dikkatlice bak. Direkt çözülemiyorlar. Aralarındaki fark ne?", "Bir yıldız bir daire ile yer değiştirince toplam 2 artıyor. Bu, 'Daire = Yıldız + 2' demektir. Bu senin YENİ denklemin.", "Şimdi bu yeni denklemi ilk denklemde kullan: Yıldız + Yıldız + (Yıldız + 2) = 14. Artık çözebilirsin."]
             },
             {
               "id": "7.2",
@@ -583,7 +583,11 @@
           },
           "realLifeTransfer": {
             "title": "Günlük Hayatta Bu Beceri",
-            "examples": ["**Ödev kontrolü:** \"Tüm soruları çözdüm mü? Her birini kontrol ettim mi?\"", "**Alışveriş:** \"Fişte yazan toplam, benim hesapladığım toplama eşit mi?\"", "**Proje teslimi:** \"Tüm bölümleri tamamladım mı? Her bölüm gereklilikleri karşılıyor mu?\""]
+            "examples": [
+              "**Ödev kontrolü:** \"Tüm soruları çözdüm mü? Her birini kontrol ettim mi?\"",
+              "**Alışveriş:** \"Fişte yazan toplam, benim hesapladığım toplama eşit mi?\"",
+              "**Proje teslimi:** \"Tüm bölümleri tamamladım mı? Her bölüm gereklilikleri karşılıyor mu?\""
+            ]
           },
           "instructorNote": {
             "commonErrors": ["Satır-sütun karıştırma (yatay-dikey)", "Doğrulama yapmadan geçme"],
@@ -805,3 +809,5 @@
     }
   ]
 }
+
+    
