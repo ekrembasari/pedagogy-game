@@ -18,5 +18,5 @@ export interface Level {
   problems: ProblemId[];
   mainSkill: CognitiveSkill;
   mentalSentence: MentalSentence;
-  instructorNote: InstructorGuidance;
+  instructorNote?: InstructorGuidance;
 }

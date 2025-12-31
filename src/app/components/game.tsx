@@ -23,6 +23,8 @@ const studentId = 'student-123'; // This would be derived from an authentication
 export default function Game() {
   const { uiState, handleSubmitAttempt } = useGameOrchestrator(repository, studentId);
   const [isFullScreen, setIsFullScreen] = useState(false);
+  const { currentLevel, currentProblem, isLoading } = uiState;
+
 
   const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
@@ -40,7 +42,7 @@ export default function Game() {
     return () => document.removeEventListener('fullscreenchange', handleFullScreenChange);
   }, []);
 
-  if (uiState.isLoading || !uiState.currentProblem || !uiState.currentLevel) {
+  if (isLoading || !currentProblem || !currentLevel) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <p>{gameText.loading}</p>
@@ -58,7 +60,7 @@ export default function Game() {
         <SidebarContent className="p-0">
           {/* Sidebar is simplified as direct navigation is no longer a primary feature */}
           <LevelSidebar
-            currentLevelId={uiState.currentLevel.id}
+            currentLevelId={currentLevel.id}
           />
         </SidebarContent>
         <SidebarFooter className='border-t'>
@@ -97,29 +99,29 @@ export default function Game() {
           <div className="lg:col-span-2 space-y-6">
             <div className='px-4 space-y-2'>
               <h2 className="text-lg font-semibold">
-                {uiState.currentLevel.title}: {gameText.level} {uiState.currentLevel.id}
+                {currentLevel.title}: {gameText.level} {currentLevel.id}
               </h2>
                {/* Progress is simplified; can be enhanced later based on history */}
               <Progress value={0} />
-              {uiState.currentLevel.instructorNote && (
+              {currentLevel.instructorNote && (
                 <p className="text-sm text-muted-foreground">
-                  {uiState.currentLevel.instructorNote.description}
+                  {currentLevel.instructorNote.description}
                 </p>
               )}
             </div>
             {/* Hint functionality is removed from the orchestrator for architectural purity */}
             {/* It can be added back as a separate, isolated feature if needed */}
-            <ProblemDisplay problem={uiState.currentProblem} />
+            <ProblemDisplay problem={currentProblem} />
             
             {/* The Answer Form is now simpler */}
             <AnswerForm
-              problem={uiState.currentProblem}
+              problem={currentProblem}
               onSubmit={handleSubmitAttempt}
             />
           </div>
           <div className="lg:col-span-1 lg:sticky top-20">
             {/* InfoPanel is simplified, showing only level-related info */}
-            <InfoPanel level={uiState.currentLevel} />
+            <InfoPanel level={currentLevel} />
           </div>
         </main>
       </SidebarInset>
