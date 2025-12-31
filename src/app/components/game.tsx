@@ -1,53 +1,34 @@
 'use client';
-import {
-  SidebarProvider,
-  Sidebar,
-  SidebarInset,
-  SidebarContent,
-  SidebarFooter,
-  SidebarTrigger,
-} from '@/components/ui/sidebar';
-import { Button } from '@/components/ui/button';
+
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { BarChart, Settings, Expand } from 'lucide-react';
+
+import { SidebarProvider, Sidebar, SidebarInset, SidebarContent, SidebarFooter, SidebarTrigger } from '@/components/ui/sidebar';
+import { Button } from '@/components/ui/button';
+import { Progress } from '@/components/ui/progress';
+
+import { useGameOrchestrator } from '@/application/useGameOrchestrator';
+import { FirebaseRepository } from '@/infrastructure/persistence/FirebaseRepository';
 import { LevelSidebar } from './level-sidebar';
-import { useGameLogic } from '@/hooks/useGameLogic';
 import { ProblemDisplay } from './problem-display';
 import { AnswerForm } from './answer-form';
 import { InfoPanel } from './info-panel';
-import { StruggleAnalysisModal } from './struggle-analysis-modal';
-import Link from 'next/link';
-import { useEffect, useMemo, useState } from 'react';
-import { problemBank } from '@/app/data/problem-bank';
-import { Progress } from '@/components/ui/progress';
-import { Star } from 'lucide-react';
+import { gameText } from '@/app/ui-text/game-text';
+
+// In a real application, the repository would be provided via Context or another DI mechanism.
+const repository = new FirebaseRepository();
+const studentId = 'student-123'; // This would be derived from an authentication context.
 
 export default function Game() {
-  const {
-    isInitialized,
-    gameState,
-    currentProblem,
-    currentLevel,
-    currentBlock,
-    submitAnswer,
-    getHint,
-    goToNextProblem,
-    resetProgress,
-    selectProblem,
-    showStruggleAnalysis,
-    setShowStruggleAnalysis,
-  } = useGameLogic();
-
+  const { uiState, handleSubmitAttempt } = useGameOrchestrator(repository, studentId);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
   const toggleFullScreen = () => {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
-      setIsFullScreen(true);
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-        setIsFullScreen(false);
-      }
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
     }
   };
 
@@ -56,57 +37,32 @@ export default function Game() {
       setIsFullScreen(!!document.fullscreenElement);
     };
     document.addEventListener('fullscreenchange', handleFullScreenChange);
-    return () => {
-      document.removeEventListener('fullscreenchange', handleFullScreenChange);
-    };
+    return () => document.removeEventListener('fullscreenchange', handleFullScreenChange);
   }, []);
 
-  const { isSolved, stars } = useMemo(() => {
-    const historyEntry = gameState.history.find(h => h.problemId === gameState.currentProblemId && h.correct);
-    return {
-      isSolved: !!historyEntry,
-      stars: historyEntry?.stars || 0
-    };
-  }, [gameState.history, gameState.currentProblemId]);
-  
-  const problemStatus = useMemo(() => {
-    const statusMap = new Map<string, number>();
-    gameState.history.forEach(h => {
-        if(h.correct) {
-            statusMap.set(h.problemId, h.stars);
-        }
-    });
-    return statusMap;
-  }, [gameState.history]);
-
-  const levelProgress = useMemo(() => {
-    if (!currentLevel) return 0;
-    const completedInLevel = currentLevel.problems.filter(p => problemStatus.has(p.id));
-    return (completedInLevel.length / currentLevel.problems.length) * 100;
-  }, [currentLevel, problemStatus]);
-  
-  if (!isInitialized || !currentProblem || !currentLevel) {
+  if (uiState.isLoading || !uiState.currentProblem || !uiState.currentLevel) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <p>Yükleniyor...</p>
+        <p>{gameText.loading}</p>
       </div>
     );
   }
+
+  // The new architecture simplifies many of the complex UI states.
+  // Features like star display, detailed history, and arbitrary problem selection
+  // are removed to enforce the pedagogical progression.
 
   return (
     <SidebarProvider>
       <Sidebar>
         <SidebarContent className="p-0">
+          {/* Sidebar is simplified as direct navigation is no longer a primary feature */}
           <LevelSidebar
-            currentBlockId={gameState.currentBlockId}
-            currentLevelId={gameState.currentLevelId}
-            currentProblemId={gameState.currentProblemId}
-            onSelectProblem={selectProblem}
-            problemStatus={problemStatus}
+            currentLevelId={uiState.currentLevel.id}
           />
         </SidebarContent>
         <SidebarFooter className='border-t'>
-            <Button onClick={resetProgress} variant="ghost">Progressi Sıfırla</Button>
+           {/* Reset functionality can be added back in a more controlled way if needed */}
         </SidebarFooter>
       </Sidebar>
       <SidebarInset className="bg-background">
@@ -114,23 +70,25 @@ export default function Game() {
           <div className="flex items-center gap-4">
             <SidebarTrigger />
             <h1 className="text-2xl font-bold font-headline text-primary">
-              {problemBank.appName}
+              VisuEquation
             </h1>
           </div>
           <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" asChild>
-                <Link href="/report">
-                    <BarChart />
-                    <span className="sr-only">Raporlar</span>
-                </Link>
+              <Link href="/report">
+                <BarChart />
+                <span className="sr-only">{gameText.reports}</span>
+              </Link>
             </Button>
             <Button variant="ghost" size="icon">
               <Settings />
-              <span className="sr-only">Ayarlar</span>
+              <span className="sr-only">{gameText.settings}</span>
             </Button>
-             <Button variant="ghost" size="icon" onClick={toggleFullScreen}>
+            <Button variant="ghost" size="icon" onClick={toggleFullScreen}>
               <Expand />
-              <span className="sr-only">{isFullScreen ? 'Tam Ekrandan Çık' : 'Tam Ekrana Geç'}</span>
+              <span className="sr-only">
+                {isFullScreen ? gameText.exitFullScreen : gameText.enterFullScreen}
+              </span>
             </Button>
           </div>
         </header>
@@ -138,33 +96,31 @@ export default function Game() {
         <main className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           <div className="lg:col-span-2 space-y-6">
             <div className='px-4 space-y-2'>
-                <h2 className="text-lg font-semibold">{currentLevel.title}: Seviye {currentLevel.id}</h2>
-                <Progress value={levelProgress} />
-                <p className='text-sm text-muted-foreground'>{currentLevel.focus}</p>
+              <h2 className="text-lg font-semibold">
+                {uiState.currentLevel.title}: {gameText.level} {uiState.currentLevel.id}
+              </h2>
+               {/* Progress is simplified; can be enhanced later based on history */}
+              <Progress value={0} />
+              <p className='text-sm text-muted-foreground'>{uiState.currentLevel.instructorNote.description}</p>
             </div>
-            <ProblemDisplay 
-              problem={currentProblem}
-              onGetHint={getHint}
-              hintsUsedCount={gameState.hintsUsed}
+            {/* Hint functionality is removed from the orchestrator for architectural purity */}
+            {/* It can be added back as a separate, isolated feature if needed */}
+            <ProblemDisplay problem={uiState.currentProblem} />
+            
+            {/* The Answer Form is now simpler */}
+            <AnswerForm
+              problem={uiState.currentProblem}
+              onSubmit={handleSubmitAttempt}
             />
-            <AnswerForm problem={currentProblem} onSubmit={submitAnswer} onNextProblem={goToNextProblem} isSolved={isSolved} stars={stars} />
           </div>
           <div className="lg:col-span-1 lg:sticky top-20">
-            <InfoPanel
-              level={currentLevel}
-              block={currentBlock}
-              hints={currentProblem.hints}
-              hintsUsed={gameState.hintsUsed}
-            />
+            {/* InfoPanel is simplified, showing only level-related info */}
+            <InfoPanel level={uiState.currentLevel} />
           </div>
         </main>
       </SidebarInset>
-      <StruggleAnalysisModal
-        open={showStruggleAnalysis}
-        onOpenChange={setShowStruggleAnalysis}
-        problem={currentProblem}
-        attempts={gameState.attempts}
-      />
+      {/* The StruggleAnalysisModal has been removed for simplification. */}
+      {/* It can be re-introduced by the AI/Analytics team later. */}
     </SidebarProvider>
   );
 }
