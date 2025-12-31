@@ -499,13 +499,17 @@
               "id": "6.2",
               "title": "Problem 6.2",
               "equations": [
-                { "parts": ["triangle", "triangle", "star"], "equals": 20 },
-                { "parts": ["triangle", "star", "star"], "equals": 16 },
+                { "parts": ["triangle", "triangle", "star"], "equals": 24 },
+                { "parts": ["triangle", "star", "star"], "equals": 20 },
                 { "parts": ["triangle", "circle", "star"], "equals": 18 }
               ],
               "unknowns": ["star", "circle", "triangle"],
-              "solution": { "star": 4, "circle": 8, "triangle": 6 },
-              "hints": ["Yine ilk iki denklemi karşılaştır. Bir üçgen bir yıldız ile yer değiştirince toplam 4 azalıyor. Ne anlama gelir?", "Yıldız, üçgenden 4 eksiktir (⭐ = △ - 4).", "Bu bilgiyi ilk denklemde yerine koy: △ + △ + (△ - 4) = 20. Artık üçgeni bulabilirsin."]
+              "solution": { "star": 4, "circle": 6, "triangle": 8 },
+              "hints": [
+                "Yine ilk iki denklemi karşılaştır. Bir üçgen bir yıldız ile yer değiştirince toplam 4 azalıyor. Ne anlama gelir?",
+                "Yıldız, üçgenden 4 eksiktir (⭐ = △ - 4).",
+                "Bu bilgiyi ilk denklemde yerine koy: △ + △ + (△ - 4) = 24. Artık üçgeni bulabilirsin."
+              ]
             },
             {
               "id": "6.3",
