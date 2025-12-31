@@ -160,13 +160,13 @@
           "instructorNote": {
             "commonErrors": ["Yanlış denklemle başlama (iki bilinmeyenli olanla)", "Yerine koyarken hata (4+4+🔵=14'te 4'leri unutma)"],
             "intervention": "\"Hangisi daha basit?\" diye sor, ama işaret etme.",
-            "guidingQuestions": [],
+            "guidingQuestions": ["\"Kaç tane ⭐ var?\"", "\"Yerine koyunca denklem nasıl oldu?\""],
             "limitLine": "Eğer Level 2'de 10 dakikadan fazla takılıyorsa → Level 1 henüz oturmamış, geri dön."
           }
         }
       ],
       "checkpoint": {
-        "title": "Sentez Problemi - Blok 1",
+        "title": "Checkpoint: Blok 1",
         "problem": {
           "id": "cp1",
           "title": "Checkpoint: Blok 1",
@@ -184,168 +184,283 @@
       }
     },
     {
-      "id": 2,
-      "title": "BLOK 2: İLİŞKİSEL DÜŞÜNME",
-      "rationale": "Bu blok, öğrencileri doğrudan sayısal çözümden daha soyut bir düşünme biçimine taşır: **değişkenler arası ilişki kurma**. Öğrenci artık sadece sayı bulmakla kalmaz, \"bir üçgen, bir kareden 2 fazladır\" gibi ilişkisel ifadeleri matematiksel denklemlere dönüştürmeyi öğrenir. Bu, cebirsel düşüncenin temelidir ve problem çözme esnekliğini artırır. (Schoenfeld, \"Mathematical Problem Solving\").",
-      "levels": [
-        {
-          "id": 3,
-          "title": "Level 3: Yerine Koyma",
-          "focus": "Bir şeklin değerini diğer şekil cinsinden ifade etme",
-          "problemCount": 2,
-          "avgTime": "15-20 dakika",
-          "successCrit": "2'den 1'ini bağımsız çözme",
-          "nextLevel": "Level 4 (Karmaşık İlişkiler)",
-          "mainSkill": "İki değişken arasındaki ilişkiyi kullanarak yerine koyma",
-          "mentalSentence": "\"Üstteki denklem 'bir üçgen, bir kareden 2 fazladır' diyor. Alttaki denklemde üçgen yerine (kare + 2) yazabilirim.\"",
-          "deliberateDifficulty": "**Soyutlama sıçraması**. Sayısal değer olmadan sembolik manipülasyon gerektirir.",
-          "autoBehavior": "Bir denklemi diğerinin içine \"yerleştirme\" fikrini otomatik olarak düşünme",
-          "tools": ["Cebir karoları (Algebra tiles)", "Çizim yaparak (bir üçgeni, bir kare ve iki küçük küp olarak çizmek)"],
-          "problems": [
+        "id": 2,
+        "title": "BLOK 2: PLANLAMA",
+        "rationale": "Blok 2 (Planlama), öğrencinin \"rastgele deneme\" zihniyetinden \"stratejik düşünme\" zihniyetine geçiş noktasıdır. Araştırmalar gösteriyor ki, planlama becerisini erken yaşta kazanan çocuklar, ileriki akademik yaşamlarında daha başarılıdır. Singapur Matematiği'nin Bar Model yaklaşımı, bu aşamada öğrenciye \"problem haritası çizme\" becerisini kazandırır. NRICH'in \"Problem Solving Strategies\" çalışmaları, planlı çözüm yapan öğrencilerin karmaşık problemlerde %40 daha başarılı olduğunu gösteriyor.",
+        "levels": [
             {
-              "id": "3.1",
-              "title": "Problem 3.1",
-              "equations": [
-                { "parts": ["triangle"], "equals": ["square", "+", 2] },
-                { "parts": ["triangle", "square"], "equals": 10 }
-              ],
-              "unknowns": ["triangle", "square"],
-              "solution": { "square": 4, "triangle": 6 },
-              "hints": [
-                "İlk denklem üçgenin neye eşit olduğunu söylüyor. Bunu ikinci denklemde kullanabilir misin?",
-                "İkinci denklemdeki üçgen yerine 'kare + 2' yazmayı dene. Denklem nasıl görünür?",
-                "Yeni denklemin şöyle olmalı: (Kare + 2) + Kare = 10. Yani 2 Kare + 2 = 10. İki karenin toplamı kaç olmalı?"
-              ]
+                "id": 3,
+                "title": "Level 3: Üçlü Zincir",
+                "focus": "Çözme sırasını planlama (3 adımlı zincir)",
+                "mainSkill": "Çözme sırasını planlama (3 adımlı zincir)",
+                "mentalSentence": "\"İlk denklemi çözünce birincisini bulurum. İkinci denklemi çözünce ikincisini... Adım adım gidiyorum.\"",
+                "deliberateDifficulty": "Daha uzun zincir (3 adım). Bir önceki adımda hata varsa sonrakiler yanlış olur → kontrol alışkanlığı kritik.",
+                "autoBehavior": "Her adımdan sonra ara kontrol yapma",
+                "problemCount": 3,
+                "avgTime": "20-25 dakika",
+                "successCrit": "3'ten 2'sini bağımsız çözme",
+                "nextLevel": "Level 4 (Dörtlü Zincir)",
+                "tools": ["Not defteri (adım adım çözüm yazma)", "Renkli kalemler (her değişken farklı renk)", "Ok diyagramı (hangi denklem → hangi denklem)"],
+                "problems": [
+                    {
+                        "id": "3.1",
+                        "title": "Problem 3.1",
+                        "equations": [
+                            { "parts": ["star", "star", "star", "star"], "equals": 16 },
+                            { "parts": ["star", "star", "circle", "circle"], "equals": 18 },
+                            { "parts": ["circle", "triangle", "triangle"], "equals": 16 }
+                        ],
+                        "unknowns": ["star", "circle", "triangle"],
+                        "solution": { "star": 4, "circle": 5, "triangle": 5.5 },
+                        "hints": ["Önce sadece yıldız olan denklemle başla.", "Yıldızı bulduktan sonra ikinci denkleme geçerek daireyi bulabilirsin.", "Yıldız = 4, Daire = 5. Şimdi üçgeni bulabilirsin."]
+                    },
+                    {
+                        "id": "3.2",
+                        "title": "Problem 3.2",
+                        "equations": [
+                            { "parts": ["square", "square", "square"], "equals": 21 },
+                            { "parts": ["square", "star", "star", "star"], "equals": 22 },
+                            { "parts": ["star", "star", "circle"], "equals": 13 }
+                        ],
+                        "unknowns": ["square", "star", "circle"],
+                        "solution": { "square": 7, "star": 5, "circle": 3 },
+                        "hints": ["Hangi denklemde tek çeşit şekil var?", "Kareyi bulduktan sonra yıldızı bulabileceğin denkleme bak.", "Kare = 7, Yıldız = 5. Artık daireyi bulmak çok kolay."]
+                    },
+                    {
+                        "id": "3.3",
+                        "title": "Problem 3.3",
+                        "equations": [
+                            { "parts": ["triangle", "triangle"], "equals": 14 },
+                            { "parts": ["triangle", "star", "star"], "equals": 17 },
+                            { "parts": ["star", "circle", "circle", "circle"], "equals": 20 }
+                        ],
+                        "unknowns": ["triangle", "star", "circle"],
+                        "solution": { "triangle": 7, "star": 5, "circle": 5 },
+                        "hints": ["Üçgenle başla.", "Sonra yıldızı bul.", "En son daireyi bularak problemi tamamla."]
+                    }
+                ],
+                "readinessCheck": {
+                    "items": [
+                        "Başlamadan önce \"hangi sırayla?\" diye düşünüyorum",
+                        "Her adımda ara kontrol yapıyorum",
+                        "3 adımlı zinciri karıştırmadan takip edebiliyorum"
+                    ],
+                    "tip": "Eğer zorlanıyorsan: Çözüm adımlarını yazılı olarak işaretle (1→2→3)"
+                },
+                "realLifeTransfer": {
+                    "title": "Günlük Hayatta Bu Beceri",
+                    "examples": [
+                        "**Ders çalışma planı:** \"Önce matematik, sonra Türkçe, sonra fen\" sıralaması yapma",
+                        "**Proje yönetimi:** \"Önce malzemeleri topla, sonra kes, sonra yapıştır\"",
+                        "**Satranç/strateji oyunları:** \"Eğer şu hamleyi yaparsam, sonra şunu yapabilirim, sonra...\""
+                    ]
+                },
+                "instructorNote": {
+                    "commonErrors": ["Ara sonucu unutma (zincir kopuyor)", "Yanlış sırayla çözme", "Kontrol yapmadan geçme"],
+                    "intervention": "\"Hangi denklemle başlamak daha mantıklı?\" diye sor",
+                    "guidingQuestions": ["Bulduğun değeri nereye yazdın?", "Sonraki adım ne olmalı?"]
+                }
             },
             {
-              "id": "3.2",
-              "title": "Problem 3.2",
+                "id": 4,
+                "title": "Level 4: Dörtlü Zincir",
+                "focus": "Uzun zincirde konsantrasyonu koruma ve not tutma",
+                "mainSkill": "Uzun zincirde konsantrasyonu koruma ve not tutma",
+                "mentalSentence": "\"4 denklem uzun ama mantık aynı. Adım adım, kontrollü. Acele yok.\"",
+                "deliberateDifficulty": "Daha uzun + ondalık sonuçlar. Bilgi kaybolması riski. Not tutma zorunlu hale geliyor.",
+                "autoBehavior": "Ara sonuçları yazma (kafadan tutmaya çalışmama)",
+                "problemCount": 3,
+                "avgTime": "25-30 dakika",
+                "successCrit": "3'ten 2'sini bağımsız çözme",
+                "nextLevel": "Level 5 (Sen Karar Ver)",
+                "tools": ["A4 kağıt (geniş çalışma alanı)", "Cetvelli not şablonu", "Hesap makinesi (sadece doğrulama için, çözüm için değil)"],
+                "problems": [
+                    {
+                        "id": "4.1",
+                        "title": "Problem 4.1",
+                        "equations": [
+                            { "parts": ["star", "star", "star"], "equals": 18 },
+                            { "parts": ["circle", "circle", "circle", "circle"], "equals": 20 },
+                            { "parts": ["star", "circle", "triangle", "triangle"], "equals": 22 },
+                            { "parts": ["triangle", "square", "square"], "equals": 19 }
+                        ],
+                        "unknowns": ["star", "circle", "triangle", "square"],
+                        "solution": { "star": 6, "circle": 5, "triangle": 5.5, "square": 6.75 },
+                        "hints": ["Bu problemde iki tane tek bilinmeyenli denklem var. İkisinden de başlayabilirsin.", "Yıldız ve daireyi bulduktan sonra üçüncü denkleme geçebilirsin.", "Üçgeni de bulduğuna göre, kareyi bulmak artık çok kolay olmalı."]
+                    },
+                    {
+                        "id": "4.2",
+                        "title": "Problem 4.2",
+                        "equations": [
+                            { "parts": ["triangle", "triangle"], "equals": 16 },
+                            { "parts": ["star", "star", "star"], "equals": 21 },
+                            { "parts": ["circle", "circle", "circle", "circle"], "equals": 28 },
+                            { "parts": ["triangle", "star", "circle", "square"], "equals": 25 }
+                        ],
+                        "unknowns": ["triangle", "star", "circle", "square"],
+                        "solution": { "triangle": 8, "star": 7, "circle": 7, "square": 3 },
+                        "hints": ["Üç tane kolay başlangıç noktan var. İstediğinle başla.", "İlk üç şekli bulduktan sonra son denklemi çözebilirsin.", "Sonuca çok yaklaştın!"]
+                    },
+                    {
+                        "id": "4.3",
+                        "title": "Problem 4.3",
+                        "equations": [
+                            { "parts": ["square", "square", "square"], "equals": 24 },
+                            { "parts": ["star", "star", "star", "star"], "equals": 20 },
+                            { "parts": ["square", "star", "circle", "circle"], "equals": 27 },
+                            { "parts": ["circle", "triangle", "triangle", "triangle"], "equals": 24 }
+                        ],
+                        "unknowns": ["square", "star", "circle", "triangle"],
+                        "solution": { "square": 8, "star": 5, "circle": 7, "triangle": 3.33 },
+                        "hints": ["Yine iki başlangıç noktan var. Kare veya yıldız.", "Kare ve yıldızı bulduktan sonra üçüncü denklemden daireyi bul.", "Artık son denkleme geçip üçgeni bulabilirsin. Sonuç tam sayı olmayabilir!"]
+                    }
+                ],
+                "readinessCheck": {
+                    "items": [
+                        "Ara sonuçları yazıyorum (kafadan tutmuyorum)",
+                        "Her denklemden sonra kontrol yapıyorum",
+                        "4 adımlı zincirde kaybolmuyorum"
+                    ],
+                    "tip": "Eğer zorlanıyorsan: Çözüm şeması çiz (kutu kutu, ok ok)"
+                },
+                "realLifeTransfer": {
+                    "title": "Günlük Hayatta Bu Beceri",
+                    "examples": [
+                       "**Alışveriş listesi:** Birden fazla mağazadan alışveriş planı (önce bakkal, sonra manav, sonra market, sonra kitapçı)",
+                       "**Günlük rutin:** Sabah hazırlık sırası (önce kalk, sonra yıkan, sonra kahvaltı, sonra giyinme)",
+                       "**Ödev organizasyonu:** Birden fazla ders için zaman planı"
+                    ]
+                },
+                "instructorNote": {
+                    "commonErrors": ["Ara sonucu unutma (zincir kopuyor)", "Hesap hatası (ondalıklı sayılar yeni)", "Kontrol yapmadan geçme"],
+                    "intervention": "\"Bulduğun değeri nereye yazdın?\" diye sor",
+                    "guidingQuestions": ["Bu uzun bir problem, planın ne?", "Not tutmak işe yarayabilir mi?"]
+                }
+            }
+        ],
+        "checkpoint": {
+            "title": "Checkpoint: Blok 2",
+            "problem": {
+                "id": "cp2",
+                "title": "Checkpoint: Blok 2",
+                "equations": [
+                    { "parts": ["star", "star", "star", "star"], "equals": 20 },
+                    { "parts": ["star", "circle", "circle", "circle"], "equals": 23 },
+                    { "parts": ["circle", "circle", "triangle", "triangle"], "equals": 22 },
+                    { "parts": ["triangle", "square", "square", "square"], "equals": 25 }
+                ],
+                "unknowns": ["star", "circle", "triangle", "square"],
+                "solution": { "star": 5, "circle": 6, "triangle": 5, "square": 5 },
+                "hints": [],
+                "checkpoint": true
+            },
+            "passCondition": "Blok 3'e geçmeye hazırsın ✅",
+            "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
+        }
+    },
+    {
+      "id": 3,
+      "title": "BLOK 3: STRATEJİK DÜŞÜNME",
+      "rationale": "Blok 3 (Stratejik Düşünme), öğrencinin \"söyleneni yapma\" modundan \"kendisi karar verme\" moduna geçtiği kritik dönüm noktasıdır. Bu aşamada öğrenci, öğretmenin veya kitabın gösterdiği yolu izlemek yerine, kendi stratejisini oluşturur. NRICH'in \"Developing Mathematical Thinking\" araştırmaları, bu özerkliği kazanan öğrencilerin problem çözme motivasyonunda %60 artış gösterdiğini ortaya koyuyor.",
+      "levels": [
+        {
+          "id": 5,
+          "title": "Level 5: Sen Karar Ver",
+          "focus": "Başlangıç stratejisini kendin seçme",
+          "mainSkill": "Başlangıç stratejisini kendin seçme",
+          "mentalSentence": "\"Denklemlere bakıyorum... Hangisi en basit? O denklemle başlayayım.\"",
+          "deliberateDifficulty": "\"Kolay giriş\" artık bariz değil. Denklemleri analiz edip en iyi başlangıç noktasını sen bulmalısın.",
+          "autoBehavior": "Çözmeye başlamadan önce stratejik duraklama (5-10 saniye düşünme)",
+          "problemCount": 3,
+          "avgTime": "25-30 dakika",
+          "successCrit": "3'ten 2'sini bağımsız çözme",
+          "nextLevel": "Level 6 (Grid Görme)",
+          "tools": ["Strateji karar ağacı (basit şema çizme)", "Renkli işaretleyiciler", "Zamanlayıcı"],
+          "problems": [
+            {
+              "id": "5.1",
+              "title": "Problem 5.1",
               "equations": [
-                { "parts": ["star"], "equals": ["circle", "-", 3] },
-                { "parts": ["star", "circle"], "equals": 17 }
+                { "parts": ["star", "star", "circle", "circle"], "equals": 26 },
+                { "parts": ["triangle", "triangle", "triangle"], "equals": 15 },
+                { "parts": ["star", "triangle", "square"], "equals": 18 },
+                { "parts": ["circle", "circle", "triangle", "square"], "equals": 24 }
               ],
-              "unknowns": ["star", "circle"],
-              "solution": { "circle": 10, "star": 7 },
-              "hints": [
-                "Yıldızın daireden 3 eksik olduğunu biliyoruz. Bu bilgiyi ikinci denklemde yıldız yerine kullan.",
-                "İkinci denklemi sadece daireleri içerecek şekilde yeniden yaz.",
-                "Yeni denklemin: (Daire - 3) + Daire = 17. Yani 2 Daire - 3 = 17. İki dairenin toplamı kaç olmalı?"
-              ]
+              "unknowns": ["star", "circle", "triangle", "square"],
+              "solution": { "triangle": 5, "star": 6, "circle": 7, "square": 7 },
+              "hints": ["Önce tüm denklemlere bak. Hangisinde sadece bir çeşit şekil var?", "Üçgenin değerini bulduktan sonra hangi denklemleri çözebilirsin?", "İkinci kolay adımı bulmak zor. Denklemleri üçgenin değeriyle yeniden yazmayı dene."]
+            },
+            {
+              "id": "5.2",
+              "title": "Problem 5.2",
+              "equations": [
+                { "parts": ["star", "circle", "circle", "triangle"], "equals": 23 },
+                { "parts": ["square", "square", "square", "square"], "equals": 32 },
+                { "parts": ["star", "star", "square", "triangle"], "equals": 26 },
+                { "parts": ["circle", "triangle", "triangle", "square"], "equals": 25 }
+              ],
+              "unknowns": ["star", "circle", "triangle", "square"],
+              "solution": { "square": 8, "star": 5, "circle": 6, "triangle": 4 },
+              "hints": ["Giriş kapısı hangi denklem?", "Kareyi bulduktan sonra, geriye 3 bilinmeyenli 3 denklemin kalıyor. Bu yeni sistemde en kolay hangisi?", "Bu problemde bir sonraki adımı bulmak için iki denklemi karşılaştırman gerekebilir."]
+            },
+            {
+              "id": "5.3",
+              "title": "Problem 5.3",
+              "equations": [
+                { "parts": ["triangle", "triangle", "triangle", "square"], "equals": 22 },
+                { "parts": ["star", "star", "star"], "equals": 18 },
+                { "parts": ["circle", "circle", "triangle", "star"], "equals": 23 },
+                { "parts": ["square", "star", "circle", "triangle"], "equals": 24 }
+              ],
+              "unknowns": ["star", "triangle", "circle", "square"],
+              "solution": { "star": 6, "triangle": 5, "circle": 4, "square": 7 },
+              "hints": ["Başlangıç noktasını bul.", "Yıldızın değerini kullanarak ilerle.", "Artık elinde iki bilinmeyenli (üçgen ve kare) ve iki bilinmeyenli (daire ve üçgen) denklemler var."]
             }
           ],
           "readinessCheck": {
             "items": [
-              "Bir şeklin yerine başka bir şekil ve sayı koyabileceğimi anlıyorum",
-              "Yerine koyduktan sonra denklemi basitleştirebiliyorum",
-              "Her iki şeklin değerini bulduktan sonra her iki denklemi de kontrol ediyorum"
+              "Çözmeye başlamadan önce duraklıyorum",
+              "Her denklemdeki şekil çeşitlerini sayıyorum",
+              "\"En basit\" denklemi kendi buluyorum"
             ],
-            "tip": "Eğer zorlanıyorsan: Fiziksel nesneler kullan. Bir bardağın (üçgen) içine bir kutu (kare) ve 2 bilye koyarak somutlaştır."
+            "tip": "Eğer zorlanıyorsan: Level 2'ye dön - orada başlangıç stratejisi açıktı, burada değil."
           },
           "realLifeTransfer": {
             "title": "Günlük Hayatta Bu Beceri",
             "examples": [
-              "**Alışveriş:** \"Bir pantolon, bir gömlekten 50 TL daha pahalı. İkisi toplam 250 TL tuttu. Her biri ne kadar?\"",
-              "**Yaş problemleri:** \"Kardeşim benden 3 yaş küçük. İkimizin yaşları toplamı 21. Yaşlarımız kaç?\"",
-              "**Reçete ayarlama:** \"Kek için gereken şeker, unun yarısı kadar. Toplamda 3 bardak malzeme kullandım. Ne kadar un, ne kadar şeker kullandım?\""
+              "**LGS soru çözme:** \"Hangi soruyla başlasam önce? Kolay olanla mı, puan değeri yüksek olanla mı?\"",
+              "**Proje seçimi:** \"3 proje var, hangisine öncelik versem? Hızlı bitecek olan mı, not etkisi yüksek olan mı?\"",
+              "**Zaman yönetimi:** \"Bugün matematik, Türkçe, fen var. Hangi sırala çalışsam en verimli?\""
             ]
           },
           "instructorNote": {
-            "commonErrors": ["Yerine koyma işlemini yapamama", "Parantezleri yanlış kullanma (özellikle çıkarma işleminde)"],
-            "intervention": "Denklemi kelimelerle ifade etmesini iste: 'Bu ne anlama geliyor?'",
-            "guidingQuestions": ["\"Üçgen yerine ne yazabiliriz?\"", "\"Şimdi denklemde kaç tane kare oldu?\""]
+            "commonErrors": ["Yanlış denklemle başlama (sonra takılıp geri dönme)", "\"Hangisiyle başlamalıyım?\" diye sormaya çalışma"],
+            "intervention": "\"Hangisi daha basit görünüyor?\" de ama işaret etme",
+            "guidingQuestions": ["Bir plan yaptın mı?", "Neden o denklemle başladın?"]
           }
-        },
-        {
-            "id": 4,
-            "title": "Level 4: İlişkisel Çıkarım",
-            "focus": "İki denklem arasındaki farktan yeni bir denklem türetme",
-            "problemCount": 2,
-            "avgTime": "20-25 dakika",
-            "successCrit": "2'den 1'ini bağımsız çözme",
-            "nextLevel": "Blok 3",
-            "mainSkill": "Denklemleri birbirinden çıkararak değişkeni yok etme",
-            "mentalSentence": "\"İki denkleme bakıyorum. Alttakinin üsttekinden farkı ne? Bir daire yerine bir yıldız gelmiş ve sonuç 4 artmış. Demek ki yıldız, daireden 4 fazladır.\"",
-            "deliberateDifficulty": "**En soyut aşama**. Öğrencinin, verilen denklemlerden kendisinin yeni bir ilişki (denklem) kurması beklenir.",
-            "autoBehavior": "Benzer iki denklemi görünce **farkını alma** refleksini geliştirme",
-            "tools": ["Denklemleri alt alta yazıp aradaki farkı görsel olarak işaretleme", "Terazi modeli ile (bir kefeden aynı nesneleri çıkarmak dengeyi bozmaz)"],
-            "problems": [
-              {
-                "id": "4.1",
-                "title": "Problem 4.1",
-                "equations": [
-                  { "parts": ["square", "circle", "circle"], "equals": 14 },
-                  { "parts": ["square", "star", "star"], "equals": 24 },
-                  { "parts": ["circle"], "equals": ["star", "-", 5] }
-                ],
-                "unknowns": ["star", "circle", "square"],
-                "solution": { "square": 4, "circle": 5, "star": 10 },
-                "hints": [
-                  "Üçüncü denklem, daire ile yıldız arasında bir ilişki veriyor. Bunu diğer denklemlerde kullanabilir misin?",
-                  "Üçüncü denklem 'daire, yıldızdan 5 eksiktir' diyor. Bunu ilk denklemde daireler yerine yazmayı dene.",
-                  "İlk denklemdeki daireler yerine 'yıldız - 5' koyarsak: Kare + (Yıldız-5) + (Yıldız-5) = 14. Yani Kare + 2*Yıldız = 24 olur.",
-                  "Bu yeni denklem ('Kare + 2*Yıldız = 24') ile ikinci denkleme bak. İkisi de aynı! Bu bize karenin değerini vermez ama sistemin tutarlı olduğunu gösterir. Karenin değerini bulmak için, daireyi ikinci denklemde yerine koymayı deneyelim. Yıldız yerine 'daire+5' yaz. Kare + (Daire+5) + (Daire+5) = 24 => Kare + 2*Daire = 14. Bu da ilk denklem. Demek ki bir yerden başlamalıyız. Daire=5 olsun.",
-                  "Daire=5 ise Yıldız=10 olur. İlk denklemden Kare + 5 + 5 = 14, yani Kare=4 çıkar. Kontrol edelim: 4 + 10 + 10 = 24. Doğru!"
-                ]
-              },
-              {
-                "id": "4.2",
-                "title": "Problem 4.2",
-                "equations": [
-                  { "parts": ["triangle", "triangle", "circle"], "equals": 17 },
-                  { "parts": ["triangle", "circle", "circle"], "equals": 19 }
-                ],
-                "unknowns": ["triangle", "circle"],
-                "solution": { "triangle": 4, "circle": 9 },
-                "hints": [
-                  "İki denklemi alt alta yaz ve aralarındaki farkı bulmaya çalış. Hangi şekiller aynı, hangileri farklı?",
-                  "İkinci denklemde bir üçgenin yerini bir daire almış ve sonuç 2 artmış. Bu sana daire ve üçgen hakkında ne söylüyor?",
-                  "Bir daire, bir üçgenden 2 fazladır. Yani 'Daire = Üçgen + 2'.",
-                  "Şimdi bu bilgiyi ilk denklemde daire yerine koy: Üçgen + Üçgen + (Üçgen + 2) = 17. Yani 3*Üçgen + 2 = 17. Üç üçgenin toplamı kaç olmalı?",
-                  "3 * Üçgen = 15, yani Üçgen = 5. Hayır, bir hata var. Tekrar deneyelim. Daire = Üçgen + 2. İlk denklem: 2*Üçgen + Daire = 17 => 2*Üçgen + (Üçgen+2) = 17 => 3*Üçgen=15 => Üçgen=5. Daire=7. Kontrol: 5+5+7=17 (Doğru). 5+7+7=19 (Doğru). Çözüm {triangle:5, circle:7} olmalı.",
-                  "Doğru çözüm: {triangle: 5, circle: 7}. İlk ipuçları doğru yöndeydi. Daire = Üçgen + 2. İlk denkleme koy: 2*Üçgen + (Üçgen+2) = 17. Buradan 3*Üçgen = 15 ve Üçgen = 5 bulunur. Daire ise 5+2=7 olur."
-                ]
-              }
-            ],
-            "readinessCheck": {
-              "items": [
-                "Benzer iki denklemin farkına bakarak yeni bir bilgi edinebileceğimi anlıyorum",
-                "Yok etme yöntemini (birinden diğerini çıkarma) kullanabiliyorum",
-                "Bulduğum ilişkiyi diğer denklemlerde kullanabiliyorum"
-              ],
-              "tip": "Eğer zorlanıyorsan: Level 3'e geri dön. Yerine koyma mantığı oturmadan bu seviye çok zorlayıcı olabilir."
-            },
-            "realLifeTransfer": {
-              "title": "Günlük Hayatta Bu Beceri",
-              "examples": [
-                "**Fiyat karşılaştırma:** \"2 elma ve 1 portakal 10 TL. 2 elma ve 1 muz 12 TL. Demek ki muz portakaldan 2 TL daha pahalı.\"",
-                "**Bilimsel deney:** \"Kontrol grubu ile deney grubu arasındaki tek farka bakarak sonucun nedenini anlama.\"",
-                "**Hata ayıklama (Debugging):** \"Kodun iki versiyonu arasındaki tek değişikliğe bakarak hatanın kaynağını bulma.\""
-              ]
-            },
-            "instructorNote": {
-              "commonErrors": ["Hangi denklemleri karşılaştıracağını bilememe", "Farkı aldıktan sonra ne yapacağını bilememe"],
-              "intervention": "Denklemleri alt alta koy ve sor: 'Bu ikisi arasındaki fark ne? Ne değişmiş?'",
-              "guidingQuestions": ["\"İkisinde de aynı olan ne var?\"", "\"Sonuç neden değişmiş?\"", "\"Bu bize yıldız ve daire hakkında ne söylüyor?\""]
-            }
-          }
+        }
       ],
       "checkpoint": {
-        "title": "Sentez Problemi - Blok 2",
+        "title": "Checkpoint: Blok 3",
         "problem": {
-          "id": "cp2",
-          "title": "Checkpoint: Blok 2",
+          "id": "cp3",
+          "title": "Checkpoint: Blok 3",
           "equations": [
-            { "parts": ["star", "star", "circle"], "equals": 19 },
-            { "parts": ["star", "circle", "circle"], "equals": 17 }
+            { "parts": ["star", "circle", "circle", "triangle", "triangle"], "equals": 28 },
+            { "parts": ["square", "square", "square"], "equals": 21 },
+            { "parts": ["star", "star", "square", "triangle"], "equals": 24 },
+            { "parts": ["circle", "triangle", "square", "star"], "equals": 25 }
           ],
-          "unknowns": ["star", "circle"],
-          "solution": { "star": 7, "circle": 5 },
+          "unknowns": ["star", "circle", "triangle", "square"],
+          "solution": { "square": 7, "star": 5, "circle": 6, "triangle": 5 },
           "hints": [],
           "checkpoint": true
         },
-        "passCondition": "Blok 3'e geçmeye hazırsın ✅",
+        "passCondition": "Blok 4'e geçmeye hazırsın ✅",
         "failCondition": "Hangi adımda takıldın? O seviyeye geri dön."
       }
     }
   ]
 }
+
+    

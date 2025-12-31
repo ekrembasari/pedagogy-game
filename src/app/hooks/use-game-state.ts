@@ -1,8 +1,9 @@
+
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
 import { problemBank, getProblem, getLevel, getBlock } from '@/app/data/problem-bank';
-import type { Problem, Solution } from '@/app/lib/types';
+import type { Solution } from '@/app/lib/types';
 import { useToast } from '@/hooks/use-toast';
 
 const STRUGGLE_ATTEMPTS_THRESHOLD = 3;
@@ -75,7 +76,8 @@ export function useGameState() {
 
     let isCorrect = true;
     for (const key in currentProblem.solution) {
-      if (Number(submittedSolution[key as keyof Solution]) !== currentProblem.solution[key as keyof Solution]) {
+      // Use a small tolerance for floating point comparisons
+      if (Math.abs(Number(submittedSolution[key as keyof Solution]) - currentProblem.solution[key as keyof Solution]) > 0.01) {
         isCorrect = false;
         break;
       }
@@ -161,42 +163,53 @@ export function useGameState() {
         hintsUsed: 0
       }));
     };
-
+    
+    // If the current problem is a checkpoint
     if (isCheckpoint) {
-      if (currentBlockIndex < problemBank.blocks.length - 1) {
+        // If there is a next block
+        if (currentBlockIndex < problemBank.blocks.length - 1) {
+            const nextBlock = problemBank.blocks[currentBlockIndex + 1];
+            const nextLevel = nextBlock.levels[0];
+            const nextProblem = nextLevel.problems[0];
+            setNext(nextBlock.id, nextLevel.id, nextProblem.id);
+            toast({ title: "Blok Tamamlandı!", description: `'${nextBlock.title}' bloğuna geçtin. Başarılar!` });
+        } else {
+            // This is the last block
+            toast({ title: "Tebrikler!", description: "Tüm problemleri tamamladın!" });
+        }
+        return;
+    }
+
+    // If there are more problems in the current level
+    if (currentProblemIndex < level.problems.length - 1) {
+        const nextProblem = level.problems[currentProblemIndex + 1];
+        setNext(gameState.currentBlockId, gameState.currentLevelId, nextProblem.id);
+        return;
+    }
+
+    // If there are more levels in the current block
+    if (currentLevelIndex < block.levels.length - 1) {
+        const nextLevel = block.levels[currentLevelIndex + 1];
+        const nextProblem = nextLevel.problems[0];
+        setNext(gameState.currentBlockId, nextLevel.id, nextProblem.id);
+        toast({ title: "Seviye Atladın!", description: `'${nextLevel.title}' seviyesine ulaştın.` });
+    } 
+    // If this is the last level in the block and there is a checkpoint
+    else if (block.checkpoint) {
+        setNext(gameState.currentBlockId, gameState.currentLevelId, block.checkpoint.problem.id);
+        toast({ title: "Checkpoint Zamanı!", description: "Şimdi öğrendiklerini gösterme zamanı." });
+    }
+    // If this is the last level, no checkpoint, but there is a next block
+    else if (currentBlockIndex < problemBank.blocks.length - 1) {
         const nextBlock = problemBank.blocks[currentBlockIndex + 1];
         const nextLevel = nextBlock.levels[0];
         const nextProblem = nextLevel.problems[0];
         setNext(nextBlock.id, nextLevel.id, nextProblem.id);
-        toast({ title: "Blok Tamamlandı!", description: `'${nextBlock.title}' bloğuna geçtin. Başarılar!` });
-      } else {
+        toast({ title: "Blok Tamamlandı!", description: `'${nextBlock.title}' bloğuna geçtin.` });
+    } 
+    // This is the end of the game
+    else {
         toast({ title: "Tebrikler!", description: "Tüm problemleri tamamladın!" });
-      }
-      return;
-    }
-
-    if (currentProblemIndex < level.problems.length - 1) {
-      const nextProblem = level.problems[currentProblemIndex + 1];
-      setNext(gameState.currentBlockId, gameState.currentLevelId, nextProblem.id);
-      return;
-    }
-
-    if (currentLevelIndex < block.levels.length - 1) {
-      const nextLevel = block.levels[currentLevelIndex + 1];
-      const nextProblem = nextLevel.problems[0];
-      setNext(gameState.currentBlockId, nextLevel.id, nextProblem.id);
-      toast({ title: "Seviye Atladın!", description: `'${nextLevel.title}' seviyesine ulaştın.` });
-    } else if (block.checkpoint) {
-      setNext(gameState.currentBlockId, gameState.currentLevelId, block.checkpoint.problem.id);
-      toast({ title: "Checkpoint Zamanı!", description: "Şimdi öğrendiklerini gösterme zamanı." });
-    } else if (currentBlockIndex < problemBank.blocks.length - 1) {
-      const nextBlock = problemBank.blocks[currentBlockIndex + 1];
-      const nextLevel = nextBlock.levels[0];
-      const nextProblem = nextLevel.problems[0];
-      setNext(nextBlock.id, nextLevel.id, nextProblem.id);
-      toast({ title: "Blok Tamamlandı!", description: `'${nextBlock.title}' bloğuna geçtin.` });
-    } else {
-      toast({ title: "Tebrikler!", description: "Tüm problemleri tamamladın!" });
     }
   }, [gameState, toast]);
 
@@ -226,3 +239,5 @@ export function useGameState() {
     setShowStruggleAnalysis,
   };
 }
+
+    

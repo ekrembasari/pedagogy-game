@@ -1,3 +1,4 @@
+
 export type Shape = 'star' | 'circle' | 'triangle' | 'square';
 
 export interface Equation {
@@ -71,3 +72,5 @@ export interface ProblemBank {
   appDescription: string;
   blocks: Block[];
 }
+
+    
