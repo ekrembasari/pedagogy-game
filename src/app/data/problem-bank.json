@@ -483,29 +483,29 @@
               "id": "6.1",
               "title": "Problem 6.1",
               "equations": [
-                { "parts": ["star", "star", "circle"], "equals": 16 },
-                { "parts": ["star", "circle", "circle"], "equals": 18 },
-                { "parts": ["star", "triangle", "circle"], "equals": 17 }
+                { "parts": ["star", "star", "circle"], "equals": 20 },
+                { "parts": ["star", "circle", "circle"], "equals": 22 },
+                { "parts": ["star", "triangle", "circle"], "equals": 21 }
               ],
               "unknowns": ["star", "circle", "triangle"],
-              "solution": { "star": 4, "circle": 8, "triangle": 5 },
+              "solution": { "star": 6, "circle": 8, "triangle": 7 },
               "hints": [
                 "İlk iki denkleme dikkatlice bak. Neredeyse aynılar. Aralarındaki fark ne?",
                 "İlk denklemden ikinciye geçerken bir yıldız, bir daire ile yer değiştiriyor ve toplam 2 artıyor. Bu ne anlama gelir?",
-                "Daire, yıldızdan 2 fazladır (🔵 = ⭐ + 2). Bu yeni bilgiyi ilk denklemde kullan: ⭐ + ⭐ + (⭐ + 2) = 16. Buradan yıldızı bulabilirsin."
+                "Daire, yıldızdan 2 fazladır (🔵 = ⭐ + 2). Bu yeni bilgiyi ilk denklemde kullan: ⭐ + ⭐ + (⭐ + 2) = 20. Buradan yıldızı bulabilirsin."
               ]
             },
             {
               "id": "6.2",
               "title": "Problem 6.2",
               "equations": [
-                { "parts": ["triangle", "triangle", "star"], "equals": 19 },
-                { "parts": ["triangle", "star", "star"], "equals": 17 },
+                { "parts": ["triangle", "triangle", "star"], "equals": 20 },
+                { "parts": ["triangle", "star", "star"], "equals": 16 },
                 { "parts": ["triangle", "circle", "star"], "equals": 18 }
               ],
               "unknowns": ["star", "circle", "triangle"],
-              "solution": { "star": 5, "circle": 7, "triangle": 6 },
-              "hints": ["Yine ilk iki denklemi karşılaştır. Bir üçgen bir yıldız ile yer değiştirince toplam 2 azalıyor. Ne anlama gelir?", "Yıldız, üçgenden 2 eksiktir (⭐ = △ - 2).", "Bu bilgiyi ilk denklemde yerine koy: △ + △ + (△ - 2) = 19. Artık üçgeni bulabilirsin."]
+              "solution": { "star": 4, "circle": 8, "triangle": 6 },
+              "hints": ["Yine ilk iki denklemi karşılaştır. Bir üçgen bir yıldız ile yer değiştirince toplam 4 azalıyor. Ne anlama gelir?", "Yıldız, üçgenden 4 eksiktir (⭐ = △ - 4).", "Bu bilgiyi ilk denklemde yerine koy: △ + △ + (△ - 4) = 20. Artık üçgeni bulabilirsin."]
             },
             {
               "id": "6.3",
@@ -517,7 +517,7 @@
               ],
               "unknowns": ["star", "circle", "triangle"],
               "solution": { "star": 5, "circle": 5, "triangle": 6 },
-              "hints": ["Hangi denklemle başlamak en mantıklısı?", "İkinci denklemi sadeleştirmeyi denedin mi? Daire + Yıldız = 10.", "İlk denklemde bir daire ve bir yıldız yerine 10 koyarsan, ikinci yıldızı bulabilirsin."]
+              "hints": ["Hangi denklemle başlamak en mantıklısı?", "İkinci denklemi sadeleştirmeyi denedin mi? İki tarafta da üçgen var.", "Daire + Yıldız = 10. Bu bilgiyi ilk denklemde kullanırsan, yıldızı bulabilirsin."]
             }
           ],
           "readinessCheck": {
