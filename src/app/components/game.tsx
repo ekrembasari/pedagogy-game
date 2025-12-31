@@ -101,7 +101,11 @@ export default function Game() {
               </h2>
                {/* Progress is simplified; can be enhanced later based on history */}
               <Progress value={0} />
-              <p className='text-sm text-muted-foreground'>{uiState.currentLevel.instructorNote.description}</p>
+              {uiState.currentLevel.instructorNote && (
+                <p className="text-sm text-muted-foreground">
+                  {uiState.currentLevel.instructorNote.description}
+                </p>
+              )}
             </div>
             {/* Hint functionality is removed from the orchestrator for architectural purity */}
             {/* It can be added back as a separate, isolated feature if needed */}
