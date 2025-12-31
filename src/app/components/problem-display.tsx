@@ -8,20 +8,20 @@ import { Button } from '@/components/ui/button';
 
 interface ProblemDisplayProps {
   problem: Problem;
-  isCheckpoint: boolean;
   onGetHint: () => void;
   hintsUsedCount: number;
 }
 
-export function ProblemDisplay({ problem, isCheckpoint, onGetHint, hintsUsedCount }: ProblemDisplayProps) {
+export function ProblemDisplay({ problem, onGetHint, hintsUsedCount }: ProblemDisplayProps) {
   const isRelational = (eq: any): eq is { parts: string[]; equals: any[] } => {
     return Array.isArray(eq.equals);
   };
+  const isCheckpoint = !!problem.checkpoint;
   const canGetHint = !isCheckpoint && hintsUsedCount < problem.hints.length;
 
 
   return (
-    <Card className="w-full">
+    <Card className="w-full shadow-lg shadow-primary/5">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-2xl font-headline">{problem.title}</CardTitle>
         <Button onClick={onGetHint} variant="ghost" size="icon" disabled={!canGetHint} aria-label="İpucu iste">

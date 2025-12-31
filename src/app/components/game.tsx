@@ -3,13 +3,12 @@ import {
   SidebarProvider,
   Sidebar,
   SidebarInset,
-  SidebarHeader,
-  SidebarTrigger,
   SidebarContent,
   SidebarFooter,
+  SidebarTrigger,
 } from '@/components/ui/sidebar';
 import { Button } from '@/components/ui/button';
-import { Home, BarChart, Settings, Expand, Lightbulb } from 'lucide-react';
+import { BarChart, Settings, Expand } from 'lucide-react';
 import { LevelSidebar } from './level-sidebar';
 import { useGameState } from '../hooks/use-game-state';
 import { ProblemDisplay } from './problem-display';
@@ -19,6 +18,8 @@ import { StruggleAnalysisModal } from './struggle-analysis-modal';
 import Link from 'next/link';
 import { useEffect, useMemo, useState } from 'react';
 import { problemBank } from '../data/problem-bank';
+import { Progress } from '@/components/ui/progress';
+import { Star } from 'lucide-react';
 
 export default function Game() {
   const {
@@ -60,17 +61,31 @@ export default function Game() {
     };
   }, []);
 
-  const isSolved = useMemo(() => 
-    gameState.history.some(h => h.problemId === gameState.currentProblemId && h.correct),
-    [gameState.history, gameState.currentProblemId]
-  );
+  const { isSolved, stars } = useMemo(() => {
+    const historyEntry = gameState.history.find(h => h.problemId === gameState.currentProblemId && h.correct);
+    return {
+      isSolved: !!historyEntry,
+      stars: historyEntry?.stars || 0
+    };
+  }, [gameState.history, gameState.currentProblemId]);
   
-  const completedProblems = useMemo(() => 
-    gameState.history.filter(h => h.correct).map(h => h.problemId),
-    [gameState.history]
-  );
+  const problemStatus = useMemo(() => {
+    const statusMap = new Map<string, number>();
+    gameState.history.forEach(h => {
+        if(h.correct) {
+            statusMap.set(h.problemId, h.stars);
+        }
+    });
+    return statusMap;
+  }, [gameState.history]);
+
+  const levelProgress = useMemo(() => {
+    if (!currentLevel) return 0;
+    const completedInLevel = currentLevel.problems.filter(p => problemStatus.has(p.id));
+    return (completedInLevel.length / currentLevel.problems.length) * 100;
+  }, [currentLevel, problemStatus]);
   
-  if (!isInitialized || !currentProblem) {
+  if (!isInitialized || !currentProblem || !currentLevel) {
     return (
       <div className="flex items-center justify-center min-h-screen">
         <p>Yükleniyor...</p>
@@ -87,7 +102,7 @@ export default function Game() {
             currentLevelId={gameState.currentLevelId}
             currentProblemId={gameState.currentProblemId}
             onSelectProblem={selectProblem}
-            completedProblems={completedProblems}
+            problemStatus={problemStatus}
           />
         </SidebarContent>
         <SidebarFooter className='border-t'>
@@ -120,15 +135,19 @@ export default function Game() {
           </div>
         </header>
 
-        <main className="p-4 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+        <main className="p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
           <div className="lg:col-span-2 space-y-6">
+            <div className='px-4 space-y-2'>
+                <h2 className="text-lg font-semibold">{currentLevel.title}: Seviye {currentLevel.id}</h2>
+                <Progress value={levelProgress} />
+                <p className='text-sm text-muted-foreground'>{currentLevel.focus}</p>
+            </div>
             <ProblemDisplay 
               problem={currentProblem}
-              isCheckpoint={!!currentProblem.checkpoint}
               onGetHint={getHint}
               hintsUsedCount={gameState.hintsUsed}
             />
-            <AnswerForm problem={currentProblem} onSubmit={submitAnswer} onNextProblem={goToNextProblem} isSolved={isSolved} />
+            <AnswerForm problem={currentProblem} onSubmit={submitAnswer} onNextProblem={goToNextProblem} isSolved={isSolved} stars={stars} />
           </div>
           <div className="lg:col-span-1 lg:sticky top-20">
             <InfoPanel

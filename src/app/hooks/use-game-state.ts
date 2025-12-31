@@ -7,21 +7,27 @@ import { useToast } from '@/hooks/use-toast';
 
 const STRUGGLE_ATTEMPTS_THRESHOLD = 3;
 
+interface HistoryEntry {
+  problemId: string;
+  correct: boolean;
+  hints: number;
+  attempts: number;
+  stars: number;
+}
+
 interface GameState {
   currentBlockId: number;
   currentLevelId: number;
   currentProblemId: string;
-  score: number;
   attempts: number;
   hintsUsed: number;
-  history: { problemId: string; correct: boolean; hints: number; attempts: number }[];
+  history: HistoryEntry[];
 }
 
 const initialGameState: GameState = {
   currentBlockId: 1,
   currentLevelId: 1,
   currentProblemId: '1.1',
-  score: 0,
   attempts: 0,
   hintsUsed: 0,
   history: [],
@@ -76,29 +82,37 @@ export function useGameState() {
     }
 
     const newAttempts = gameState.attempts + 1;
-    let newScore = gameState.score;
 
     if (isCorrect) {
-      // Dynamic Scoring
-      let points = 100; // Base points
-      points -= gameState.hintsUsed * 15; // Penalty for hints
-      points -= (newAttempts - 1) * 5; // Penalty for attempts
+      let stars = 0;
       if (gameState.hintsUsed === 0 && newAttempts === 1) {
-        points += 50; // Bonus for perfect solve
+        stars = 3;
+      } else if (gameState.hintsUsed <= 1 && newAttempts <= 2) {
+        stars = 2;
+      } else {
+        stars = 1;
       }
-      newScore += Math.max(10, points); // Minimum 10 points
 
       toast({
         title: "Doğru!",
-        description: `Harika! ${Math.max(10, points)} puan kazandın.`,
+        description: `Harika! ${stars} yıldız kazandın.`,
         variant: 'default',
       });
       
-      setGameState(prev => ({
-        ...prev,
-        score: newScore,
-        history: [...prev.history, { problemId: prev.currentProblemId, correct: true, hints: prev.hintsUsed, attempts: newAttempts }],
-      }));
+      setGameState(prev => {
+        const newHistory = prev.history.filter(h => h.problemId !== prev.currentProblemId);
+        newHistory.push({ 
+            problemId: prev.currentProblemId, 
+            correct: true, 
+            hints: prev.hintsUsed, 
+            attempts: newAttempts,
+            stars: stars,
+        });
+        return {
+          ...prev,
+          history: newHistory,
+        };
+      });
 
     } else {
       toast({
@@ -113,7 +127,7 @@ export function useGameState() {
       }
     }
     return isCorrect;
-  }, [currentProblem, gameState.attempts, gameState.hintsUsed, gameState.score, toast]);
+  }, [currentProblem, gameState.attempts, gameState.hintsUsed, toast]);
 
   const getHint = useCallback(() => {
     if (!currentProblem || gameState.hintsUsed >= currentProblem.hints.length) {
@@ -128,16 +142,15 @@ export function useGameState() {
   const goToNextProblem = useCallback(() => {
     const block = problemBank.blocks.find(b => b.id === gameState.currentBlockId);
     if (!block) return;
-  
+
     const level = block.levels.find(l => l.id === gameState.currentLevelId);
     if (!level) return;
-  
+
     const isCheckpoint = block.checkpoint?.problem.id === gameState.currentProblemId;
     const currentProblemIndex = level.problems.findIndex(p => p.id === gameState.currentProblemId);
     const currentLevelIndex = block.levels.findIndex(l => l.id === gameState.currentLevelId);
     const currentBlockIndex = problemBank.blocks.findIndex(b => b.id === gameState.currentBlockId);
-  
-    // Function to set next state and reset attempts/hints
+
     const setNext = (blockId: number, levelId: number, problemId: string) => {
       setGameState(prev => ({
         ...prev,
@@ -148,8 +161,7 @@ export function useGameState() {
         hintsUsed: 0
       }));
     };
-  
-    // CASE 1: Current problem is a CHECKPOINT
+
     if (isCheckpoint) {
       if (currentBlockIndex < problemBank.blocks.length - 1) {
         const nextBlock = problemBank.blocks[currentBlockIndex + 1];
@@ -162,29 +174,22 @@ export function useGameState() {
       }
       return;
     }
-  
-    // CASE 2: There are more problems in the CURRENT LEVEL
+
     if (currentProblemIndex < level.problems.length - 1) {
       const nextProblem = level.problems[currentProblemIndex + 1];
       setNext(gameState.currentBlockId, gameState.currentLevelId, nextProblem.id);
       return;
     }
-  
-    // CASE 3: It's the last problem of the level, move to NEXT LEVEL or CHECKPOINT
-    // If there is a next level in the current block
+
     if (currentLevelIndex < block.levels.length - 1) {
       const nextLevel = block.levels[currentLevelIndex + 1];
       const nextProblem = nextLevel.problems[0];
       setNext(gameState.currentBlockId, nextLevel.id, nextProblem.id);
       toast({ title: "Seviye Atladın!", description: `'${nextLevel.title}' seviyesine ulaştın.` });
-    } 
-    // If it's the last level of the block, move to the block's checkpoint
-    else if (block.checkpoint) {
+    } else if (block.checkpoint) {
       setNext(gameState.currentBlockId, gameState.currentLevelId, block.checkpoint.problem.id);
       toast({ title: "Checkpoint Zamanı!", description: "Şimdi öğrendiklerini gösterme zamanı." });
-    } 
-    // Fallback: Should be handled by checkpoint logic, but in case there's no checkpoint.
-    else if (currentBlockIndex < problemBank.blocks.length - 1) {
+    } else if (currentBlockIndex < problemBank.blocks.length - 1) {
       const nextBlock = problemBank.blocks[currentBlockIndex + 1];
       const nextLevel = nextBlock.levels[0];
       const nextProblem = nextLevel.problems[0];
